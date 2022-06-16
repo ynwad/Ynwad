@@ -1,0 +1,1 @@
+2022-06-15 20:51:24	99	namemmmmmmm	256	[FATAL]	[root]	/home/ynwad/workspace/ynwad/ynwad/tests/test.cc:32	222222222222222222222222222222  123456677

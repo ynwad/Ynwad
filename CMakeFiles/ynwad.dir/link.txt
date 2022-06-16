@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -pthread -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function  -shared -Wl,-soname,libynwad.so -o lib/libynwad.so CMakeFiles/ynwad.dir/log.cc.o CMakeFiles/ynwad.dir/utils.cc.o 
