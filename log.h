@@ -12,15 +12,89 @@
 #include <map>
 #include "macro.h"
 #include "mutex.h"
+#include "sigleton.h"
+
+/**
+ * @brief 使用流式方式将日志级别level的日志写入到logger
+ */
+#define YNWAD_LOG_LEVEL(logger, level) \
+    if(logger->getLevel() <= level) \
+        ynwad::LogEventWrap(ynwad::LogEvent::ptr(new ynwad::LogEvent(logger, level, \
+                        __FILE__, __LINE__, 0, ynwad::GetThreadId(),\
+                ynwad::GetFiberId(), time(0), ynwad::Thread::GetName()))).getSS()
+
+/**
+ * @brief 使用流式方式将日志级别debug的日志写入到logger
+ */
+#define YNWAD_LOG_DEBUG(logger) YNWAD_LOG_LEVEL(logger, ynwad::LogLevel::DEBUG)
+
+/**
+ * @brief 使用流式方式将日志级别info的日志写入到logger
+ */
+#define YNWAD_LOG_INFO(logger) YNWAD_LOG_LEVEL(logger, ynwad::LogLevel::INFO)
+
+/**
+ * @brief 使用流式方式将日志级别warn的日志写入到logger
+ */
+#define YNWAD_LOG_WARN(logger) YNWAD_LOG_LEVEL(logger, ynwad::LogLevel::WARN)
+
+/**
+ * @brief 使用流式方式将日志级别error的日志写入到logger
+ */
+#define YNWAD_LOG_ERROR(logger) YNWAD_LOG_LEVEL(logger, ynwad::LogLevel::ERROR)
+
+/**
+ * @brief 使用流式方式将日志级别fatal的日志写入到logger
+ */
+#define YNWAD_LOG_FATAL(logger) YNWAD_LOG_LEVEL(logger, ynwad::LogLevel::FATAL)
 
 
 /**
- * @brief 获取name的日志器
+ * @brief 使用格式化方式将日志级别level的日志写入到logger
  */
-#define SYLAR_LOG_NAME(name) ynwad::LoggerMgr::GetInstance()->getLogger(name)
+#define YNWAD_LOG_FMT_LEVEL(logger, level, fmt, ...) \
+    if(logger->getLevel() <= level) \
+        sylar::LogEventWrap(sylar::LogEvent::ptr(new sylar::LogEvent(logger, level, \
+                        __FILE__, __LINE__, 0, sylar::GetThreadId(),\
+                sylar::GetFiberId(), time(0), sylar::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
+
+/**
+ * @brief 使用格式化方式将日志级别debug的日志写入到logger
+ */
+#define YNWAD_LOG_FMT_DEBUG(logger, fmt, ...) YNWAD_LOG_FMT_LEVEL(logger, sylar::LogLevel::DEBUG, fmt, __VA_ARGS__)
+
+/**
+ * @brief 使用格式化方式将日志级别info的日志写入到logger
+ */
+#define YNWAD_LOG_FMT_INFO(logger, fmt, ...)  YNWAD_LOG_FMT_LEVEL(logger, sylar::LogLevel::INFO, fmt, __VA_ARGS__)
+
+/**
+ * @brief 使用格式化方式将日志级别warn的日志写入到logger
+ */
+#define YNWAD_LOG_FMT_WARN(logger, fmt, ...)  YNWAD_LOG_FMT_LEVEL(logger, sylar::LogLevel::WARN, fmt, __VA_ARGS__)
+
+/**
+ * @brief 使用格式化方式将日志级别error的日志写入到logger
+ */
+#define YNWAD_LOG_FMT_ERROR(logger, fmt, ...) YNWAD_LOG_FMT_LEVEL(logger, sylar::LogLevel::ERROR, fmt, __VA_ARGS__)
+
+/**
+ * @brief 使用格式化方式将日志级别fatal的日志写入到logger
+ */
+#define YNWAD_LOG_FMT_FATAL(logger, fmt, ...) YNWAD_LOG_FMT_LEVEL(logger, sylar::LogLevel::FATAL, fmt, __VA_ARGS__)
+
+/**
+ * @brief 获取主日志器
+ */
+#define YNWAD_LOG_ROOT() sylar::LoggerMgr::GetInstance()->getRoot()
+
+
+/**
+ * @brief 获取指定name的日志器
+ */
+#define YNWAD_LOG_NAME(name) ynwad::LoggerMgr::GetInstance()->getLogger(name)
 
 namespace ynwad {
-
 
 class Logger;
 
@@ -96,8 +170,8 @@ public:
     std::shared_ptr<Logger> getLogger() const {return m_logger;}
 private:
     const char* m_file = nullptr;   //文件名
-    uint32_t m_line = 0;    //行号
-    uint32_t m_elapse = 0;  //程序启动开始到现在的毫秒数
+    uint32_t m_line = 0;        //行号
+    uint32_t m_elapse = 0;      //程序启动开始到现在的毫秒数
     uint32_t m_threadId = 0;    //线程Id
     uint32_t m_fiberId = 0;     //协程id
     uint64_t m_time = 0;        //时间戳
@@ -224,7 +298,6 @@ private:
     MutexType m_mutex;
     Logger::ptr m_root;
 };
-
 
 //输出到控制台的Appender
 class StdOutLogAppender : public LogAppender {
