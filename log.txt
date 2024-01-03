@@ -1,7 +1,1 @@
-2022-06-15 19:58:25	99	namemmmmmmm	256	[FATAL]	[root]	/home/ynwad/workspace/ynwad/ynwad/tests/test.cc:32	222222222222222222222222222222  123456677
-2022-06-15 20:57:40	99	namemmmmmmm	256	[FATAL]	[root]	/home/ynwad/workspace/ynwad/ynwad/tests/test.cc:32	222222222222222222222222222222  123456677
-2022-06-15 20:57:41	99	namemmmmmmm	256	[FATAL]	[root]	/home/ynwad/workspace/ynwad/ynwad/tests/test.cc:32	222222222222222222222222222222  123456677
-2022-06-15 20:57:42	99	namemmmmmmm	256	[FATAL]	[root]	/home/ynwad/workspace/ynwad/ynwad/tests/test.cc:32	222222222222222222222222222222  123456677
-2022-06-15 20:57:42	99	namemmmmmmm	256	[FATAL]	[root]	/home/ynwad/workspace/ynwad/ynwad/tests/test.cc:32	222222222222222222222222222222  123456677
-2022-06-15 20:57:43	99	namemmmmmmm	256	[FATAL]	[root]	/home/ynwad/workspace/ynwad/ynwad/tests/test.cc:32	222222222222222222222222222222  123456677
-2022-06-16 01:43:16	99	namemmmmmmm	256	[FATAL]	[root]	/home/ynwad/workspace/ynwad/ynwad/tests/test.cc:32	222222222222222222222222222222  123456677
+2024-01-04 00:49:35	29166	t_thread_name	0	[FATAL]	[root]	/home/ynwad/workspace/ynwad/tests/test.cc:25	222222222222222222222222222222  123456677

@@ -1,0 +1,7 @@
+2022-06-15 19:58:25	99	namemmmmmmm	256	[FATAL]	[root]	/home/sylar/workspace/sylar/sylar/tests/test.cc:32	222222222222222222222222222222  123456677
+2022-06-15 20:57:40	99	namemmmmmmm	256	[FATAL]	[root]	/home/sylar/workspace/sylar/sylar/tests/test.cc:32	222222222222222222222222222222  123456677
+2022-06-15 20:57:41	99	namemmmmmmm	256	[FATAL]	[root]	/home/sylar/workspace/sylar/sylar/tests/test.cc:32	222222222222222222222222222222  123456677
+2022-06-15 20:57:42	99	namemmmmmmm	256	[FATAL]	[root]	/home/sylar/workspace/sylar/sylar/tests/test.cc:32	222222222222222222222222222222  123456677
+2022-06-15 20:57:42	99	namemmmmmmm	256	[FATAL]	[root]	/home/sylar/workspace/sylar/sylar/tests/test.cc:32	222222222222222222222222222222  123456677
+2022-06-15 20:57:43	99	namemmmmmmm	256	[FATAL]	[root]	/home/sylar/workspace/sylar/sylar/tests/test.cc:32	222222222222222222222222222222  123456677
+2022-06-16 01:43:16	99	namemmmmmmm	256	[FATAL]	[root]	/home/sylar/workspace/sylar/sylar/tests/test.cc:32	222222222222222222222222222222  123456677
