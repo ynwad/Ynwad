@@ -6,5 +6,11 @@ CXX_DEFINES = -Dsylar_EXPORTS
 
 CXX_INCLUDES = 
 
-CXX_FLAGS =  -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function -fPIC
+CXX_FLAGS =  -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function -fPIC   -Wno-builtin-macro-redefined
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/mutex.cc.o_DEFINES = __FILE__="sylar/mutex.cc"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/utils.cc.o_DEFINES = __FILE__="sylar/utils.cc"
+
+# Custom defines: CMakeFiles/sylar.dir/sylar/log.cc.o_DEFINES = __FILE__="sylar/log.cc"
 

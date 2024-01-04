@@ -1,4 +1,5 @@
 /home/ynwad/workspace/ynwad/CMakeFiles/sylar.dir
+/home/ynwad/workspace/ynwad/CMakeFiles/sylar_static.dir
 /home/ynwad/workspace/ynwad/CMakeFiles/test.dir
 /home/ynwad/workspace/ynwad/CMakeFiles/edit_cache.dir
 /home/ynwad/workspace/ynwad/CMakeFiles/rebuild_cache.dir

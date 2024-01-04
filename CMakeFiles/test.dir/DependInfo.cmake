@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ynwad/workspace/ynwad/tests/test.cc" "CMakeFiles/test.dir/tests/test.cc.o" "gcc" "CMakeFiles/test.dir/tests/test.cc.o.d"
+  "/home/ynwad/workspace/ynwad/tests/test_log.cc" "CMakeFiles/test.dir/tests/test_log.cc.o" "gcc" "CMakeFiles/test.dir/tests/test_log.cc.o.d"
   )
 
 # Targets to which this target links.

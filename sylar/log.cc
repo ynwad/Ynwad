@@ -7,6 +7,7 @@
 // #include <sys/time.h>
 // #include <unistd.h>
 #include <string.h>
+#include <stdarg.h>
 // #include <sys/stat.h>
 // #include <sys/types.h>
 
@@ -52,6 +53,22 @@ LogEvent::LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level
     ,m_threadName(thread_name)
     ,m_logger(logger)
     ,m_level(level) {
+}
+
+void LogEvent::format(const char* fmt, ...){
+    va_list al;
+    va_start(al, fmt);
+    format(fmt, al);
+    va_end(al);
+}
+
+void LogEvent::format(const char* fmt, va_list al){
+    char* buf = nullptr;
+    int len = vasprintf(&buf, fmt, al);
+    if(len != -1) {
+        m_ss << std::string(buf, len);
+        free(buf);
+    }
 }
 
 Logger::Logger(const std::string& name)
@@ -435,7 +452,7 @@ void LogFormatter::init() {
             vec.push_back(std::make_tuple(str, fmt, 1));
             i = n - 1;
         } else if(fmt_status == 1) {
-            std::cout << "pattern parse error: " << m_pattern << " - " << m_pattern.substr(i) << std::endl;
+            // std::cout << "pattern parse error: " << m_pattern << " - " << m_pattern.substr(i) << std::endl;
             m_error = true;
             vec.push_back(std::make_tuple("<<pattern_error>>", fmt, 0));
         }
@@ -476,9 +493,9 @@ void LogFormatter::init() {
             }
         }
 
-        std::cout << "(" << std::get<0>(i) << ") - (" << std::get<1>(i) << ") - (" << std::get<2>(i) << ")" << std::endl;
+        // std::cout << "(" << std::get<0>(i) << ") - (" << std::get<1>(i) << ") - (" << std::get<2>(i) << ")" << std::endl;
     }
-    std::cout << m_vecItems.size() << std::endl;
+    // std::cout << m_vecItems.size() << std::endl;
 }
 
 LoggerManager::LoggerManager() {

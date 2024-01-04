@@ -49,7 +49,6 @@
  */
 #define SYLAR_LOG_FATAL(logger) SYLAR_LOG_LEVEL(logger, sylar::LogLevel::FATAL)
 
-
 /**
  * @brief 使用格式化方式将日志级别level的日志写入到logger
  */
@@ -57,7 +56,7 @@
     if(logger->getLevel() <= level) \
         sylar::LogEventWrap(sylar::LogEvent::ptr(new sylar::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, sylar::GetThreadId(),\
-                sylar::GetFiberId(), time(0), sylar::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
+                sylar::GetFiberId(), time(0), "thread_name"))).getEvent()->format(fmt, __VA_ARGS__)
 
 /**
  * @brief 使用格式化方式将日志级别debug的日志写入到logger
@@ -170,6 +169,16 @@ public:
      * @brief 返回日志器
      */
     std::shared_ptr<Logger> getLogger() const {return m_logger;}
+
+    /**
+     * @brief 格式化写入日志内容
+     */
+    void format(const char* fmt, ...);
+
+    /**
+     * @brief 格式化写入日志内容
+     */
+    void format(const char* fmt, va_list al);
 private:
     const char* m_file = nullptr;   //文件名
     uint32_t m_line = 0;        //行号

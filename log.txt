@@ -1,1 +1,44 @@
 2024-01-04 00:49:35	29166	t_thread_name	0	[FATAL]	[root]	/home/ynwad/workspace/ynwad/tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 21:46:58	1671	t_thread_name	0	[FATAL]	[root]	/home/ynwad/workspace/ynwad/tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 21:49:41	2325	t_thread_name	0	[FATAL]	[root]	/home/ynwad/workspace/ynwad/tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 21:58:08	3819	t_thread_name	0	[FATAL]	[root]	/home/ynwad/workspace/ynwad/tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 21:58:10	3861	t_thread_name	0	[FATAL]	[root]	/home/ynwad/workspace/ynwad/tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 22:15:10	7006	t_thread_name	0	[FATAL]	[root]	/home/ynwad/workspace/ynwad/tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 22:15:11	7039	t_thread_name	0	[FATAL]	[root]	/home/ynwad/workspace/ynwad/tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 22:18:58	8158	t_thread_name	0	[FATAL]	[root]	tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 22:18:59	8188	t_thread_name	0	[FATAL]	[root]	tests/test.cc:25	222222222222222222222222222222  123456677
+2024-01-04 22:21:05	8913	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:25	222222222222222222222222222222  123456677
+2024-01-04 22:21:06	8943	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:25	222222222222222222222222222222  123456677
+2024-01-04 22:52:32	15260	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:52:32	15260	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:52:32	15260	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:52:34	15308	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:52:34	15308	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:52:34	15308	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:53:00	15449	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:53:00	15449	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:53:00	15449	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:53:02	15494	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:53:02	15494	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:53:02	15494	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:53:22	15635	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:53:22	15635	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:53:22	15635	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:53:23	15665	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:53:23	15665	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:53:23	15665	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:53:24	15698	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:53:24	15698	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:53:24	15698	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:55:29	16215	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:55:29	16215	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:55:29	16215	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:55:31	16263	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:55:31	16263	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:55:31	16263	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:58:30	16978	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:58:30	16978	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:58:30	16978	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa
+2024-01-04 22:58:54	17232	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:23	222222222222222222222222222222  123456677
+2024-01-04 22:58:54	17232	t_thread_name	0	[FATAL]	[root]	tests/test_log.cc:24	11111
+2024-01-04 22:58:54	17232	thread_name	0	[ERROR]	[root]	tests/test_log.cc:26	test macro fmt error aa

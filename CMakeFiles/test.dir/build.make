@@ -72,28 +72,28 @@ include CMakeFiles/test.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/test.dir/flags.make
 
-CMakeFiles/test.dir/tests/test.cc.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/tests/test.cc.o: tests/test.cc
-CMakeFiles/test.dir/tests/test.cc.o: CMakeFiles/test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ynwad/workspace/ynwad/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/tests/test.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/tests/test.cc.o -MF CMakeFiles/test.dir/tests/test.cc.o.d -o CMakeFiles/test.dir/tests/test.cc.o -c /home/ynwad/workspace/ynwad/tests/test.cc
+CMakeFiles/test.dir/tests/test_log.cc.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/tests/test_log.cc.o: tests/test_log.cc
+CMakeFiles/test.dir/tests/test_log.cc.o: CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ynwad/workspace/ynwad/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/tests/test_log.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"tests/test_log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/tests/test_log.cc.o -MF CMakeFiles/test.dir/tests/test_log.cc.o.d -o CMakeFiles/test.dir/tests/test_log.cc.o -c /home/ynwad/workspace/ynwad/tests/test_log.cc
 
-CMakeFiles/test.dir/tests/test.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/tests/test.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ynwad/workspace/ynwad/tests/test.cc > CMakeFiles/test.dir/tests/test.cc.i
+CMakeFiles/test.dir/tests/test_log.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/tests/test_log.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"tests/test_log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ynwad/workspace/ynwad/tests/test_log.cc > CMakeFiles/test.dir/tests/test_log.cc.i
 
-CMakeFiles/test.dir/tests/test.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/tests/test.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ynwad/workspace/ynwad/tests/test.cc -o CMakeFiles/test.dir/tests/test.cc.s
+CMakeFiles/test.dir/tests/test_log.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/tests/test_log.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"tests/test_log.cc\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ynwad/workspace/ynwad/tests/test_log.cc -o CMakeFiles/test.dir/tests/test_log.cc.s
 
 # Object files for target test
 test_OBJECTS = \
-"CMakeFiles/test.dir/tests/test.cc.o"
+"CMakeFiles/test.dir/tests/test_log.cc.o"
 
 # External object files for target test
 test_EXTERNAL_OBJECTS =
 
-bin/test: CMakeFiles/test.dir/tests/test.cc.o
+bin/test: CMakeFiles/test.dir/tests/test_log.cc.o
 bin/test: CMakeFiles/test.dir/build.make
 bin/test: lib/libsylar.so
 bin/test: CMakeFiles/test.dir/link.txt

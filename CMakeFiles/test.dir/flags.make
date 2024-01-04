@@ -6,5 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS =  -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function
+CXX_FLAGS =  -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function   -Wno-builtin-macro-redefined
+
+# Custom defines: CMakeFiles/test.dir/tests/test_log.cc.o_DEFINES = __FILE__="tests/test_log.cc"
 
