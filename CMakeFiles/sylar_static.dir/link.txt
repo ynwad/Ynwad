@@ -1,2 +1,0 @@
-/usr/bin/ar qc lib/libsylar.a CMakeFiles/sylar_static.dir/sylar/mutex.cc.o CMakeFiles/sylar_static.dir/sylar/utils.cc.o CMakeFiles/sylar_static.dir/sylar/log.cc.o
-/usr/bin/ranlib lib/libsylar.a

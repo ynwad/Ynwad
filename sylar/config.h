@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-04 23:01:14
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-05 00:08:04
+ * @LastEditTime: 2024-01-09 00:30:17
  * @FilePath: /ynwad/sylar/config.h
  * @Description: 
  * 
@@ -17,7 +17,7 @@
 #include <unordered_set>
 #include <list>
 #include <functional>
-
+#include <boost/lexical_cast.hpp>
 #include "log.h"
 
 namespace sylar{
@@ -320,10 +320,10 @@ public:
  */
 template<class T, class FromStr = LexicalCast<std::string, T>
                 , class ToStr = LexicalCast<T, std::string> >
-class ConfigVar : public Configvarbase{
+class ConfigVar : public ConfigVarBase{
 public:
     typedef RWMutex RWMutexType;
-    typedef std::shared_ptr<Configvar> ptr;
+    typedef std::shared_ptr<ConfigVar> ptr;
     typedef std::function<void (const T& old_value, const T& new_value)> on_change_cb;
 
     /**

@@ -9,6 +9,7 @@
 #ifndef __SYLAR_UTIL_H__
 #define __SYLAR_UTIL_H__
 
+#include <cxxabi.h>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -35,6 +36,12 @@ public:
     static bool OpenForWrite(std::ofstream& ofs, const std::string& filename
                     ,std::ios_base::openmode mode);
 };
+
+template<class T>
+const char* TypeToName() {
+    static const char* s_name = abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, nullptr);
+    return s_name;
+}
 
 }
 #endif

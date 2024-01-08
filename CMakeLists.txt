@@ -18,6 +18,8 @@ set(LIB_SRC
     sylar/mutex.cc
     sylar/utils.cc
     sylar/log.cc
+    sylar/thread.cc
+    sylar/config.cc
 )
 
 #添加要生成的库文件
@@ -33,7 +35,8 @@ set(LIBS
     yaml-cpp
 )
 
-sylar_add_executable(test "tests/test_log.cc" sylar "${LIBS}")
+sylar_add_executable(test_log "tests/test_log.cc" sylar "${LIBS}")
+sylar_add_executable(test_thread "tests/test_thread.cc" sylar "${LIBS}")
 # target_link_libraries(test sylar)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

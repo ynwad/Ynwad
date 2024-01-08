@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC  -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function -shared -Wl,-soname,libsylar.so -o lib/libsylar.so CMakeFiles/sylar.dir/sylar/mutex.cc.o CMakeFiles/sylar.dir/sylar/utils.cc.o CMakeFiles/sylar.dir/sylar/log.cc.o   -L/usr/local/lib 
