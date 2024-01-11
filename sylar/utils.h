@@ -1,3 +1,13 @@
+/*
+ * @Author: ynwad
+ * @Date: 2023-12-21 22:55:51
+ * @LastEditors: ynwad qingchenchn@gmail.com
+ * @LastEditTime: 2024-01-11 22:11:20
+ * @FilePath: /ynwad/sylar/utils.h
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 /**
  * @file util.h
  * @brief 常用的工具函数
@@ -30,6 +40,9 @@ uint32_t GetFiberId();
 
 class FSUtil {
 public:
+    static void ListAllFile(std::vector<std::string>& files
+                            ,const std::string& path
+                            ,const std::string& subfix);
     static bool Mkdir(const std::string& dirname);
     static std::string Dirname(const std::string& filename);
     static std::string Basename(const std::string& filename);

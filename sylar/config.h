@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-04 23:01:14
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-09 00:30:17
+ * @LastEditTime: 2024-01-11 23:07:15
  * @FilePath: /ynwad/sylar/config.h
  * @Description: 
  * 
@@ -119,7 +119,7 @@ public:
     std::string operator()(const std::vector<T>& v) {
         YAML::Node node(YAML::NodeType::Sequence);
         for(auto &i : v){
-            node.push_back(LexicalCast<T, std::string>(i));
+            node.push_back(YAML::Load(LexicalCast<T, std::string>()(i)));
         }
         std::stringstream ss;
         ss << node;

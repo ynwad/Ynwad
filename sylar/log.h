@@ -12,7 +12,7 @@
 #include <map>
 // #include "macro.h"
 #include "mutex.h"
-#include "sigleton.h"
+#include "singleton.h"
 #include "utils.h"
 
 /**
