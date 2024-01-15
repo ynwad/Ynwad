@@ -127,7 +127,7 @@ void FSUtil::ListAllFile(std::vector<std::string>& files
             ListAllFile(files, path + "/" + dp->d_name, subfix);
         }
         else if(dp->d_type == DT_REG){
-                        std::string filename(dp->d_name);
+            std::string filename(dp->d_name);
             if(subfix.empty()) {
                 files.push_back(path + "/" + filename);
             } else {

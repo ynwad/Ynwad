@@ -1,8 +1,10 @@
 #include <iostream>
 #include <yaml-cpp/yaml.h>
-#include "../sylar/config.h"
 #include "../sylar/log.h"
+#include "../sylar/config.h"
 #include "../sylar/env.h"
+
+static sylar::Logger::ptr g_logger = SYLAR_LOG_NAME("test");
 
 #if 1
 sylar::ConfigVar<int>::ptr g_int_value_config =
@@ -192,22 +194,22 @@ void test_class() {
                 << " new_value=" << new_value.toString();
     });
 
-    XX_PM(g_person_map, "class.map before");
-    SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "before: " << g_person_vec_map->toString();
+    // XX_PM(g_person, "class.person before");
+    SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "before: " << g_person->toString();
 
-    YAML::Node root = YAML::LoadFile("/home/ynwad/workspace/sylar/sylar/bin/conf/log.yml");
+    YAML::Node root = YAML::LoadFile("/home/ynwad/workspace/ynwad/bin/conf/log.yml");
     sylar::Config::LoadFromYaml(root);
 
     SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "after: " << g_person->getValue().toString() << " - " << g_person->toString();
-    XX_PM(g_person_map, "class.map after");
-    SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "after: " << g_person_vec_map->toString();
+    // XX_PM(g_person, "class.person after");
+    SYLAR_LOG_INFO(SYLAR_LOG_ROOT()) << "after: " << g_person->toString();
 }
 
 void test_log() {
     static sylar::Logger::ptr system_log = SYLAR_LOG_NAME("system");
     SYLAR_LOG_INFO(system_log) << "hello system" << std::endl;
-    // std::cout << sylar::LoggerMgr::GetInstance()->toYamlString() << std::endl;
-    YAML::Node root = YAML::LoadFile("/home/ynwad/workspace/sylar/sylar/bin/conf/system.yml");
+    std::cout << sylar::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+    YAML::Node root = YAML::LoadFile("/home/ynwad/workspace/ynwad/bin/conf/test.yaml");
     sylar::Config::LoadFromYaml(root);
     std::cout << "=============" << std::endl;
     std::cout << sylar::LoggerMgr::GetInstance()->toYamlString() << std::endl;
@@ -228,9 +230,9 @@ int main(int argc, char** argv) {
     // test_yaml();
     // test_config();
     // test_class();
-    test_log();
-    // sylar::EnvMgr::GetInstance()->init(argc, argv);
-    // test_loadconf();
+    // test_log();
+    sylar::EnvMgr::GetInstance()->init(argc, argv);
+    test_loadconf();
     // std::cout << " ==== " << std::endl;
     // sleep(10);
     // test_loadconf();

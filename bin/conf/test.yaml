@@ -1,0 +1,11 @@
+#对象、Map格式
+class:
+  k: 
+      v1: 1111
+      v2: 2222
+  
+  #示例：
+  student:
+      name: qinjiang
+      age: 3
+      sex: true

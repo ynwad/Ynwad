@@ -110,7 +110,17 @@ public:
         FATAL = 5
     };
 
+    /**
+     * @brief 将日志级别转成文本输出
+     * @param[in] level 日志级别
+     */
     static std::string ToString(Level level);
+
+    /**
+     * @brief 将文本转换成日志级别
+     * @param[in] str 日志级别文本
+     */
+    static LogLevel::Level FromString(const std::string& str);
 };
 
 //日志事件
@@ -285,7 +295,7 @@ public:
     
     void addAppender(LogAppender::ptr appender);
     void delAppender(LogAppender::ptr appender);
-    void clearAppender();
+    void clearAppenders();
     LogLevel::Level getLevel() const {return m_level;}
     void setLevel(LogLevel::Level level) {m_level = level;}
     const std::string& getName() const {return m_name;}

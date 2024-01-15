@@ -47,14 +47,18 @@ void Config::LoadFromYaml(const YAML::Node& root) {
         if(key.empty()) {
             continue;
         }
-
+        // 对于一元操作，将op应用于[first1, last1)范围内的每个元素，
+        // 并将每个操作返回的值存储在以result开头的范围内。
+        // 给定的op将被连续调用last1-first1次。
+        // op可以是函数指针或函数对象或lambda表达式。
         std::transform(key.begin(), key.end(), key.begin(), ::tolower);
+
+        // 如果存在key才从文件中加载更新，不存在直接跳过
         ConfigVarBase::ptr var = LookupBase(key);
 
         if(var) {
             if(i.second.IsScalar()) {
                 var->fromString(i.second.Scalar());
-                std::cout << "\n -----------IsScalar:  key=" << i.first << ", value = " << i.second.Scalar() << std::endl;
             } else {
                 std::stringstream ss;
                 ss << i.second;
