@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2023-12-21 22:55:51
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-11 22:11:20
+ * @LastEditTime: 2024-01-18 00:12:28
  * @FilePath: /ynwad/sylar/utils.h
  * @Description: 
  * 
@@ -37,6 +37,24 @@ pid_t GetThreadId();
  * @brief 返回当前协程的ID
  */
 uint32_t GetFiberId();
+
+/**
+ * @brief 获取当前的调用栈
+ * @param[out] bt 保存调用栈
+ * @param[in] size 最多返回层数
+ * @param[in] skip 跳过栈顶的层数
+ */
+void Backtrace(std::vector<std::string>& bt, int size = 64, int skip = 1);
+
+
+/**
+ * @brief 获取当前栈信息的字符串
+ * @param[in] size 栈的最大层数
+ * @param[in] skip 跳过栈顶的层数
+ * @param[in] prefix 栈信息前输出的内容
+ */
+std::string BacktraceToString(int size = 64, int skip = 2, const std::string& prefix = "");
+
 
 class FSUtil {
 public:

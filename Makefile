@@ -184,6 +184,19 @@ test_config/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
 .PHONY : test_config/fast
 
+#=============================================================================
+# Target rules for targets named test_fiber
+
+# Build rule for target.
+test_fiber: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_fiber
+.PHONY : test_fiber
+
+# fast build rule for target.
+test_fiber/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/build
+.PHONY : test_fiber/fast
+
 sylar/config.o: sylar/config.cc.o
 .PHONY : sylar/config.o
 
@@ -237,6 +250,33 @@ sylar/env.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/env.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/env.cc.s
 .PHONY : sylar/env.cc.s
+
+sylar/fiber.o: sylar/fiber.cc.o
+.PHONY : sylar/fiber.o
+
+# target to build an object file
+sylar/fiber.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/fiber.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/fiber.cc.o
+.PHONY : sylar/fiber.cc.o
+
+sylar/fiber.i: sylar/fiber.cc.i
+.PHONY : sylar/fiber.i
+
+# target to preprocess a source file
+sylar/fiber.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/fiber.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/fiber.cc.i
+.PHONY : sylar/fiber.cc.i
+
+sylar/fiber.s: sylar/fiber.cc.s
+.PHONY : sylar/fiber.s
+
+# target to generate assembly for a file
+sylar/fiber.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/fiber.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/fiber.cc.s
+.PHONY : sylar/fiber.cc.s
 
 sylar/log.o: sylar/log.cc.o
 .PHONY : sylar/log.o
@@ -370,6 +410,30 @@ tests/test_config.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
 .PHONY : tests/test_config.cc.s
 
+tests/test_fiber.o: tests/test_fiber.cc.o
+.PHONY : tests/test_fiber.o
+
+# target to build an object file
+tests/test_fiber.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.o
+.PHONY : tests/test_fiber.cc.o
+
+tests/test_fiber.i: tests/test_fiber.cc.i
+.PHONY : tests/test_fiber.i
+
+# target to preprocess a source file
+tests/test_fiber.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.i
+.PHONY : tests/test_fiber.cc.i
+
+tests/test_fiber.s: tests/test_fiber.cc.s
+.PHONY : tests/test_fiber.s
+
+# target to generate assembly for a file
+tests/test_fiber.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cc.s
+.PHONY : tests/test_fiber.cc.s
+
 tests/test_log.o: tests/test_log.cc.o
 .PHONY : tests/test_log.o
 
@@ -429,6 +493,7 @@ help:
 	@echo "... sylar"
 	@echo "... sylar_static"
 	@echo "... test_config"
+	@echo "... test_fiber"
 	@echo "... test_log"
 	@echo "... test_thread"
 	@echo "... sylar/config.o"
@@ -437,6 +502,9 @@ help:
 	@echo "... sylar/env.o"
 	@echo "... sylar/env.i"
 	@echo "... sylar/env.s"
+	@echo "... sylar/fiber.o"
+	@echo "... sylar/fiber.i"
+	@echo "... sylar/fiber.s"
 	@echo "... sylar/log.o"
 	@echo "... sylar/log.i"
 	@echo "... sylar/log.s"
@@ -452,6 +520,9 @@ help:
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
+	@echo "... tests/test_fiber.o"
+	@echo "... tests/test_fiber.i"
+	@echo "... tests/test_fiber.s"
 	@echo "... tests/test_log.o"
 	@echo "... tests/test_log.i"
 	@echo "... tests/test_log.s"

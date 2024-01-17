@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-09 00:19:25
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-09 00:19:50
+ * @LastEditTime: 2024-01-18 00:33:05
  * @FilePath: /ynwad/sylar/sylar.h
  * @Description: 
  * 
@@ -20,6 +20,7 @@
 #include "noncopyable.h"
 #include "thread.h"
 #include "utils.h"
+#include "fiber.h"
 
 
 #endif

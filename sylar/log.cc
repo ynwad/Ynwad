@@ -241,6 +241,7 @@ void FileLogAppender::log(std::shared_ptr<Logger> logger, LogLevel::Level level,
         if(!m_formatter->format(m_filestream, logger, level, event)){
             std::cout << "error" <<std::endl;
         }
+        std::cout << "--------------path: " << m_filename << std::endl;
     }
 }
 
