@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-17 23:38:19
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-18 00:03:21
+ * @LastEditTime: 2024-01-19 00:06:47
  * @FilePath: /ynwad/sylar/fiber.h
  * @Description: 
  * 
@@ -20,7 +20,7 @@ namespace sylar{
 class Schedular;
 
 class Fiber : public std::enable_shared_from_this<Fiber>{
-friend class Schedular;
+friend class Scheduler;
 public:
     typedef std::shared_ptr<Fiber> ptr;
 

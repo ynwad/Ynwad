@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-09 00:19:25
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-18 00:33:05
+ * @LastEditTime: 2024-01-19 00:05:59
  * @FilePath: /ynwad/sylar/sylar.h
  * @Description: 
  * 
@@ -21,6 +21,7 @@
 #include "thread.h"
 #include "utils.h"
 #include "fiber.h"
+#include "scheduler.h"
 
 
 #endif

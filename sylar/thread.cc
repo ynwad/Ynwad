@@ -1,3 +1,13 @@
+/*
+ * @Author: ynwad
+ * @Date: 2024-01-08 23:25:34
+ * @LastEditors: ynwad qingchenchn@gmail.com
+ * @LastEditTime: 2024-01-19 00:13:03
+ * @FilePath: /ynwad/sylar/thread.cc
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 #include "thread.h"
 #include "log.h"
 
@@ -45,7 +55,7 @@ Thread::~Thread() {
     if(m_thread) {
         pthread_detach(m_thread);
     }
-    SYLAR_LOG_ERROR(g_logger) << "Thread xigou";
+    SYLAR_LOG_ERROR(g_logger) << "Thread Destruct";
 }
 
 void Thread::join() {

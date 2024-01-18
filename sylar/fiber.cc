@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-17 23:38:26
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-18 00:49:34
+ * @LastEditTime: 2024-01-19 00:11:38
  * @FilePath: /ynwad/sylar/fiber.cc
  * @Description: 
  * 
@@ -12,7 +12,7 @@
 #include "config.h"
 #include "macro.h"
 #include "log.h"
-// #include "scheduler.h"
+#include "scheduler.h"
 #include <atomic>
 
 namespace sylar{
@@ -147,17 +147,17 @@ void Fiber::swapIn() {
     SetThis(this);
     SYLAR_ASSERT(m_state != EXEC);
     m_state = EXEC;
-    // if(swapcontext(&Scheduler::GetMainFiber()->m_ctx, &m_ctx)) {
-    //     SYLAR_ASSERT2(false, "swapcontext");
-    // }
+    if(swapcontext(&Scheduler::GetMainFiber()->m_ctx, &m_ctx)) {
+        SYLAR_ASSERT2(false, "swapcontext");
+    }
 }
 
 //切换到后台执行
 void Fiber::swapOut() {
-    // SetThis(Scheduler::GetMainFiber());
-    // if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)) {
-    //     SYLAR_ASSERT2(false, "swapcontext");
-    // }
+    SetThis(Scheduler::GetMainFiber());
+    if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)) {
+        SYLAR_ASSERT2(false, "swapcontext");
+    }
 }
 
 //设置当前协程
