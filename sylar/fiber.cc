@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-17 23:38:26
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-21 15:04:15
+ * @LastEditTime: 2024-01-22 21:40:53
  * @FilePath: /ynwad/sylar/fiber.cc
  * @Description: 
  * 
@@ -188,7 +188,7 @@ void Fiber::YieldToReady() {
 void Fiber::YieldToHold() {
     Fiber::ptr cur = GetThis();
     SYLAR_ASSERT(cur->m_state == EXEC);
-    cur->m_state = HOLD;
+    // cur->m_state = HOLD;
     cur->swapOut();
 }
 
