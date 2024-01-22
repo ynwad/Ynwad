@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-19 00:02:47
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-19 00:04:04
+ * @LastEditTime: 2024-01-21 14:16:17
  * @FilePath: /ynwad/tests/test_scheduler.cc
  * @Description: 
  * 
@@ -26,7 +26,9 @@ int main(int argc, char** argv) {
     SYLAR_LOG_INFO(g_logger) << "main";
     sylar::Scheduler sc(3, false, "test");
     sc.start();
-    sleep(2);
+    sleep(10);
+    // usleep(1000000);
+    
     SYLAR_LOG_INFO(g_logger) << "schedule";
     sc.schedule(&test_fiber);
     sc.stop();

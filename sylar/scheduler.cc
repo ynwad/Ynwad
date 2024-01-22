@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-18 22:29:14
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-18 23:24:58
+ * @LastEditTime: 2024-01-21 15:21:14
  * @FilePath: /ynwad/sylar/scheduler.cc
  * @Description: 
  * 
@@ -237,7 +237,7 @@ void Scheduler::run() {
             --m_idleThreadCount;
             if(idle_fiber->getState() != Fiber::TERM
                     && idle_fiber->getState() != Fiber::EXCEPT) {
-                idle_fiber->m_state = Fiber::HOLD;
+                // idle_fiber->m_state = Fiber::HOLD;
             }
         }
     }
