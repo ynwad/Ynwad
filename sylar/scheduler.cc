@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-18 22:29:14
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-22 21:40:39
+ * @LastEditTime: 2024-01-23 23:22:30
  * @FilePath: /ynwad/sylar/scheduler.cc
  * @Description: 
  * 
@@ -148,7 +148,7 @@ void Scheduler::setThis() {
 
 void Scheduler::run() {
     SYLAR_LOG_DEBUG(g_logger) << m_name << " run";
-    // set_hook_enable(true);
+    set_hook_enable(true);
     setThis();
     if(sylar::GetThreadId() != m_rootThread) {
         t_scheduler_fiber = Fiber::GetThis().get();

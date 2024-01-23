@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-18 22:39:21
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-22 21:44:16
+ * @LastEditTime: 2024-01-23 23:23:29
  * @FilePath: /ynwad/sylar/hook.cc
  * @Description: 
  * 
@@ -10,6 +10,7 @@
  */
 #include "hook.h"
 #include <dlfcn.h>
+#include <stdarg.h>
 
 #include "config.h"
 #include "log.h"
@@ -96,7 +97,6 @@ static ssize_t do_io(int fd, OriginFun fun, const char* hook_fun_name,
     if(!sylar::t_hook_enable) {
         return fun(fd, std::forward<Args>(args)...);
     }
-
     sylar::FdCtx::ptr ctx = sylar::FdMgr::GetInstance()->get(fd);
     if(!ctx) {
         return fun(fd, std::forward<Args>(args)...);
@@ -116,9 +116,13 @@ static ssize_t do_io(int fd, OriginFun fun, const char* hook_fun_name,
 
 retry:
     ssize_t n = fun(fd, std::forward<Args>(args)...);
+    // errno == EINTR：此条件检查错误是否特定于系统调用被信号中断,此时重复调用
     while(n == -1 && errno == EINTR) {
         n = fun(fd, std::forward<Args>(args)...);
     }
+    // EAGAIN表示当前操作（通常是读取或写入）在非阻塞模式下是暂时不可用的，
+    // 但稍后可能可用。
+    // 此时，加入定时器，超时后再尝试操作
     if(n == -1 && errno == EAGAIN) {
         sylar::IOManager* iom = sylar::IOManager::GetThis();
         sylar::Timer::ptr timer;
@@ -236,6 +240,7 @@ int connect_with_timeout(int fd, const struct sockaddr* addr, socklen_t addrlen,
         return connect_f(fd, addr, addrlen);
     }
 
+    // 为socket时， FdCtx已自动设置为非阻塞
     int n = connect_f(fd, addr, addrlen);
     if(n == 0) {
         return 0;
@@ -243,9 +248,11 @@ int connect_with_timeout(int fd, const struct sockaddr* addr, socklen_t addrlen,
         return n;
     }
 
+    // 到这里说明还未执行完毕，增加定时器，添加到调度模块
     sylar::IOManager* iom = sylar::IOManager::GetThis();
     sylar::Timer::ptr timer;
     std::shared_ptr<timer_info> tinfo(new timer_info);
+    // 函数退出，即tinfo被释放，则定时器超时后，不执行Cb。
     std::weak_ptr<timer_info> winfo(tinfo);
 
     if(timeout_ms != (uint64_t)-1) {
@@ -295,6 +302,7 @@ int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen) {
 
 int accept(int s, struct sockaddr *addr, socklen_t *addrlen) {
     int fd = do_io(s, accept_f, "accept", sylar::IOManager::READ, SO_RCVTIMEO, addr, addrlen);
+    // accept会返回一个fd，因此此处将返回的fd添加到FdMgr
     if(fd >= 0) {
         sylar::FdMgr::GetInstance()->get(fd, true);
     }
@@ -451,6 +459,7 @@ int ioctl(int d, unsigned long int request, ...) {
     va_end(va);
 
     if(FIONBIO == request) {
+        // 双重取非，将整数值转换为布尔类型
         bool user_nonblock = !!*(int*)arg;
         sylar::FdCtx::ptr ctx = sylar::FdMgr::GetInstance()->get(d);
         if(!ctx || ctx->isClose() || !ctx->isSocket()) {

@@ -2,7 +2,7 @@
  * @Author: ynwad
  * @Date: 2024-01-21 22:04:34
  * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-21 22:27:45
+ * @LastEditTime: 2024-01-23 21:11:29
  * @FilePath: /ynwad/sylar/timer.cc
  * @Description: 
  * 
@@ -113,6 +113,7 @@ Timer::ptr TimerManager::addTimer(uint64_t ms, std::function<void()> cb
 }
 
 static void OnTimer(std::weak_ptr<void> weak_cond, std::function<void()> cb) {
+    // 调用函数退出，即weak_cond.lock()被释放，则定时器超时后，不执行Cb。
     std::shared_ptr<void> tmp = weak_cond.lock();
     if(tmp) {
         cb();

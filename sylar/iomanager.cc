@@ -187,6 +187,7 @@ int IOManager::addEvent(int fd, Event event, std::function<void()> cb) {
                 && !event_ctx.cb);
 
     event_ctx.scheduler = Scheduler::GetThis();
+    // 如果有回调函数，则事件触发以后执行回调，否则，返回调用处继续执行
     if(cb) {
         event_ctx.cb.swap(cb);
     } else {
@@ -232,6 +233,7 @@ bool IOManager::delEvent(int fd, Event event) {
 }
 
 bool IOManager::cancelEvent(int fd, Event event) {
+    // 从epoll的监听列表移除
     RWMutexType::ReadLock lock(m_mutex);
     if((int)m_fdContexts.size() <= fd) {
         return false;
@@ -257,7 +259,7 @@ bool IOManager::cancelEvent(int fd, Event event) {
             << rt << " (" << errno << ") (" << strerror(errno) << ")";
         return false;
     }
-
+    // 取消后手动触发一次，否则无法回到调用处
     fd_ctx->triggerEvent(event);
     --m_pendingEventCount;
     return true;
