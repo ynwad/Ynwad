@@ -13,6 +13,11 @@ set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++17 -Wall -Wno-depre
 
 link_directories(/usr/local/lib)
 
+find_package(OpenSSL REQUIRED)
+if(OPENSSL_FOUND)
+    include_directories(${OPENSSL_INCLUDE_DIR})
+endif()
+
 #设置变量
 set(LIB_SRC
     sylar/mutex.cc
@@ -27,6 +32,8 @@ set(LIB_SRC
     sylar/iomanager.cc
     sylar/fd_manager.cc
     sylar/hook.cc
+    sylar/address.cc
+    sylar/socket.cc
 )
 
 #添加要生成的库文件
@@ -40,6 +47,8 @@ SET_TARGET_PROPERTIES (sylar_static PROPERTIES OUTPUT_NAME "sylar")
 set(LIBS
     sylar
     yaml-cpp
+
+    ${OPENSSL_LIBRARIES}
 )
 
 sylar_add_executable(test_log "tests/test_log.cc" sylar "${LIBS}")
@@ -49,6 +58,7 @@ sylar_add_executable(test_fiber "tests/test_fiber.cc" sylar "${LIBS}")
 sylar_add_executable(test_scheduler "tests/test_scheduler.cc" sylar "${LIBS}")
 sylar_add_executable(test_iomanager "tests/test_iomanager.cc" sylar "${LIBS}")
 sylar_add_executable(test_hook "tests/test_hook.cc" sylar "${LIBS}")
+sylar_add_executable(test_socket "tests/test_socket.cc" sylar "${LIBS}")
 
 # target_link_libraries(test sylar)
 

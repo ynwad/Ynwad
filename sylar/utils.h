@@ -82,6 +82,7 @@ public:
     static std::string Basename(const std::string& filename);
     static bool OpenForWrite(std::ofstream& ofs, const std::string& filename
                     ,std::ios_base::openmode mode);
+    static bool Unlink(const std::string& filename, bool exist = false);                
 };
 
 template<class T>

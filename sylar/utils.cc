@@ -259,8 +259,6 @@ bool FSUtil::Mkdir(const std::string& dirname) {
     return false;
 }
 
-#endif
-
 bool FSUtil::OpenForWrite(std::ofstream& ofs, const std::string& filename
                         ,std::ios_base::openmode mode) {
     ofs.open(filename.c_str(), mode);   
@@ -289,4 +287,15 @@ std::string FSUtil::Dirname(const std::string& filename){
         return filename.substr(0, pos);
     }
 }
+
+bool FSUtil::Unlink(const std::string& filename, bool exist) {
+    if(!exist && __lstat(filename.c_str())) {
+        return true;
+    }
+    return ::unlink(filename.c_str()) == 0;
 }
+
+
+}
+
+#endif
