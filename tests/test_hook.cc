@@ -41,7 +41,7 @@ void test_sock() {
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;
     addr.sin_port = htons(80);
-    inet_pton(AF_INET, "104.26.10.213", &addr.sin_addr.s_addr);
+    inet_pton(AF_INET, "192.168.130.38", &addr.sin_addr.s_addr);
 
     SYLAR_LOG_INFO(g_logger) << "begin connect";
     int rt = connect(sock, (const sockaddr*)&addr, sizeof(addr));
