@@ -5,17 +5,17 @@
 static sylar::Logger::ptr g_looger = SYLAR_LOG_ROOT();
 
 void test_socket() {
-    //std::vector<sylar::Address::ptr> addrs;
-    //sylar::Address::Lookup(addrs, "www.baidu.com", AF_INET);
-    //sylar::IPAddress::ptr addr;
-    //for(auto& i : addrs) {
-    //    SYLAR_LOG_INFO(g_looger) << i->toString();
-    //    addr = std::dynamic_pointer_cast<sylar::IPAddress>(i);
-    //    if(addr) {
-    //        break;
-    //    }
-    //}
-    sylar::IPAddress::ptr addr = sylar::Address::LookupAnyIPAddress("www.baidu.com");
+    std::vector<sylar::Address::ptr> addrs;
+    sylar::Address::Lookup(addrs, "www.baidu.com:80", AF_INET);
+    sylar::IPAddress::ptr addr;
+    for(auto& i : addrs) {
+       SYLAR_LOG_INFO(g_looger) << i->toString();
+       addr = std::dynamic_pointer_cast<sylar::IPAddress>(i);
+       if(addr) {
+           break;
+       }
+    }
+    addr = sylar::Address::LookupAnyIPAddress("www.baidu.com");
     if(addr) {
         SYLAR_LOG_INFO(g_looger) << "get address: " << addr->toString();
     } else {
@@ -63,6 +63,7 @@ void test2() {
     }
 
     sylar::Socket::ptr sock = sylar::Socket::CreateTCP(addr);
+    // sylar::Socket::ptr sock = sylar::Socket::CreateTCPSocket();
     if(!sock->connect(addr)) {
         SYLAR_LOG_ERROR(g_looger) << "connect " << addr->toString() << " fail";
         return;
@@ -98,7 +99,7 @@ void test2() {
 
 int main(int argc, char** argv) {
     sylar::IOManager iom;
-    iom.schedule(&test_socket);
-    // iom.schedule(&test2);
+    // iom.schedule(&test_socket);
+    iom.schedule(&test2);
     return 0;
 }

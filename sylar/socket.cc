@@ -29,6 +29,7 @@ Socket::ptr Socket::CreateTCPSocket() {
 
 Socket::ptr Socket::CreateUDPSocket() {
     Socket::ptr sock(new Socket(IPv4, UDP, 0));
+    // 如果是UDP，直接创建套接字
     sock->newSock();
     sock->m_isConnected = true;
     return sock;
@@ -447,8 +448,11 @@ bool Socket::cancelAll() {
 
 void Socket::initSock() {
     int val = 1;
+    // 设置 SO_REUSEADDR 选项，该选项允许在套接字关闭后立即重用相同的端口
     setOption(SOL_SOCKET, SO_REUSEADDR, val);
     if(m_type == SOCK_STREAM) {
+        // 设置 TCP_NODELAY 选项。TCP_NODELAY 禁用了 Nagle 算法，
+        // 这有助于提高TCP连接的实时性
         setOption(IPPROTO_TCP, TCP_NODELAY, val);
     }
 }
