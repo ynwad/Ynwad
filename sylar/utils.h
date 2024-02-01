@@ -20,12 +20,23 @@
 #define __SYLAR_UTIL_H__
 
 #include <cxxabi.h>
-#include <iostream>
+#include <pthread.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/syscall.h>
+#include <stdio.h>
+#include <stdint.h>
 #include <vector>
 #include <string>
-#include <iostream>
-#include <thread>
+#include <iomanip>
+// #include <json/json.h>
 #include <yaml-cpp/yaml.h>
+#include <iostream>
+#include <boost/lexical_cast.hpp>
+// #include <google/protobuf/message.h>
+// #include "sylar/util/hash_util.h"
+// #include "sylar/util/json_util.h"
+// #include "sylar/util/crypto_util.h"
 
 namespace sylar {
 /**
@@ -90,6 +101,24 @@ const char* TypeToName() {
     static const char* s_name = abi::__cxa_demangle(typeid(T).name(), nullptr, nullptr, nullptr);
     return s_name;
 }
+
+class StringUtil {
+public:
+    static std::string Format(const char* fmt, ...);
+    static std::string Formatv(const char* fmt, va_list ap);
+
+    static std::string UrlEncode(const std::string& str, bool space_as_plus = true);
+    static std::string UrlDecode(const std::string& str, bool space_as_plus = true);
+
+    static std::string Trim(const std::string& str, const std::string& delimit = " \t\r\n");
+    static std::string TrimLeft(const std::string& str, const std::string& delimit = " \t\r\n");
+    static std::string TrimRight(const std::string& str, const std::string& delimit = " \t\r\n");
+
+
+    static std::string WStringToString(const std::wstring& ws);
+    static std::wstring StringToWString(const std::string& s);
+
+};
 
 }
 #endif

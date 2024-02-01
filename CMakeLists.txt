@@ -4,6 +4,7 @@ project(sylar)
 cmake_policy(SET CMP0045 OLD)
 
 include (cmake/utils.cmake)
+
 add_definitions(-Wno-builtin-macro-redefined)
 #显示详细的原始编译信息，主要用于定位一些链接错误，看看库路径什么的是否配置对
 set(CMAKE_VERBOSE_MAKEFILE ON)
@@ -11,11 +12,18 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 #C++ 编译标志相关变量。
 set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function")
 
+include_directories(.)
+
 link_directories(/usr/local/lib)
 
 find_package(OpenSSL REQUIRED)
 if(OPENSSL_FOUND)
     include_directories(${OPENSSL_INCLUDE_DIR})
+endif()
+
+find_package(ZLIB REQUIRED)
+if(ZLIB_FOUND)
+    include_directories(${ZLIB_INCLUDE_DIR})
 endif()
 
 #设置变量
@@ -34,7 +42,20 @@ set(LIB_SRC
     sylar/hook.cc
     sylar/address.cc
     sylar/socket.cc
+    sylar/tcp_server.cc
+    sylar/bytearray.cc
+    sylar/http/http.cc
+    sylar/http/http_connection.cc
+    sylar/http/http_parser.cc
+    sylar/http/http_session.cc
+    sylar/streams/socket_stream.cc
+    sylar/stream.cc
+    sylar/streams/zlib_stream.cc
 )
+
+ragelmaker(sylar/http/http11_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar/http)
+ragelmaker(sylar/http/httpclient_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar/http)
+ragelmaker(sylar/uri.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar)
 
 #添加要生成的库文件
 add_library(sylar SHARED ${LIB_SRC})
@@ -47,8 +68,8 @@ SET_TARGET_PROPERTIES (sylar_static PROPERTIES OUTPUT_NAME "sylar")
 set(LIBS
     sylar
     yaml-cpp
-
     ${OPENSSL_LIBRARIES}
+    ${ZLIB_LIBRARIES}
 )
 
 sylar_add_executable(test_log "tests/test_log.cc" sylar "${LIBS}")
@@ -59,6 +80,11 @@ sylar_add_executable(test_scheduler "tests/test_scheduler.cc" sylar "${LIBS}")
 sylar_add_executable(test_iomanager "tests/test_iomanager.cc" sylar "${LIBS}")
 sylar_add_executable(test_hook "tests/test_hook.cc" sylar "${LIBS}")
 sylar_add_executable(test_socket "tests/test_socket.cc" sylar "${LIBS}")
+sylar_add_executable(test_tcp_server "tests/test_tcp_server.cc" sylar "${LIBS}")
+sylar_add_executable(test_bytearray "tests/test_bytearray.cc" sylar "${LIBS}")
+sylar_add_executable(test_http_parser "tests/test_http_parser.cc" sylar "${LIBS}")
+sylar_add_executable(test_http "tests/test_http.cc" sylar "${LIBS}")
+sylar_add_executable(test_http_connection "tests/test_http_connection.cc" sylar "${LIBS}")
 
 # target_link_libraries(test sylar)
 
