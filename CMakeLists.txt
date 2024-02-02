@@ -29,7 +29,7 @@ endif()
 #设置变量
 set(LIB_SRC
     sylar/mutex.cc
-    sylar/utils.cc
+    sylar/util.cc
     sylar/log.cc
     sylar/thread.cc
     sylar/config.cc
@@ -48,8 +48,12 @@ set(LIB_SRC
     sylar/http/http_connection.cc
     sylar/http/http_parser.cc
     sylar/http/http_session.cc
-    sylar/streams/socket_stream.cc
+    sylar/http/http_server.cc
+    sylar/http/servlet.cc
+    sylar/http/servlets/config_servlet.cc
+    sylar/http/servlets/status_servlet.cc
     sylar/stream.cc
+    sylar/streams/socket_stream.cc
     sylar/streams/zlib_stream.cc
 )
 
@@ -85,6 +89,7 @@ sylar_add_executable(test_bytearray "tests/test_bytearray.cc" sylar "${LIBS}")
 sylar_add_executable(test_http_parser "tests/test_http_parser.cc" sylar "${LIBS}")
 sylar_add_executable(test_http "tests/test_http.cc" sylar "${LIBS}")
 sylar_add_executable(test_http_connection "tests/test_http_connection.cc" sylar "${LIBS}")
+sylar_add_executable(test_http_server "tests/test_http_server.cc" sylar "${LIBS}")
 
 # target_link_libraries(test sylar)
 

@@ -560,6 +560,7 @@ private:
     /// 是否为websocket
     bool m_websocket;
 
+    /// 当前解析到哪一步
     uint8_t m_parserParamFlag;
     /// 请求路径
     std::string m_path;

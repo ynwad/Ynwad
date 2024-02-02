@@ -1,5 +1,5 @@
 #include "http.h"
-#include "sylar/utils.h"
+#include "sylar/util.h"
 
 namespace sylar {
 namespace http {
@@ -214,6 +214,7 @@ void HttpRequest::initQueryParam() {
         return;
     }
 
+// q=string & newwindow=1 & sca_esv=e1b 
 #define PARSE_PARAM(str, m, flag, trim) \
     size_t pos = 0; \
     do { \

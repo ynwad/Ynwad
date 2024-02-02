@@ -314,6 +314,19 @@ test_http_connection/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/build
 .PHONY : test_http_connection/fast
 
+#=============================================================================
+# Target rules for targets named test_http_server
+
+# Build rule for target.
+test_http_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_http_server
+.PHONY : test_http_server
+
+# fast build rule for target.
+test_http_server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/build
+.PHONY : test_http_server/fast
+
 sylar/address.o: sylar/address.cc.o
 .PHONY : sylar/address.o
 
@@ -611,6 +624,33 @@ sylar/http/http_parser.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/http_parser.cc.s
 .PHONY : sylar/http/http_parser.cc.s
 
+sylar/http/http_server.o: sylar/http/http_server.cc.o
+.PHONY : sylar/http/http_server.o
+
+# target to build an object file
+sylar/http/http_server.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/http_server.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/http_server.cc.o
+.PHONY : sylar/http/http_server.cc.o
+
+sylar/http/http_server.i: sylar/http/http_server.cc.i
+.PHONY : sylar/http/http_server.i
+
+# target to preprocess a source file
+sylar/http/http_server.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/http_server.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/http_server.cc.i
+.PHONY : sylar/http/http_server.cc.i
+
+sylar/http/http_server.s: sylar/http/http_server.cc.s
+.PHONY : sylar/http/http_server.s
+
+# target to generate assembly for a file
+sylar/http/http_server.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/http_server.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/http_server.cc.s
+.PHONY : sylar/http/http_server.cc.s
+
 sylar/http/http_session.o: sylar/http/http_session.cc.o
 .PHONY : sylar/http/http_session.o
 
@@ -664,6 +704,87 @@ sylar/http/httpclient_parser.rl.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/httpclient_parser.rl.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/httpclient_parser.rl.cc.s
 .PHONY : sylar/http/httpclient_parser.rl.cc.s
+
+sylar/http/servlet.o: sylar/http/servlet.cc.o
+.PHONY : sylar/http/servlet.o
+
+# target to build an object file
+sylar/http/servlet.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlet.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlet.cc.o
+.PHONY : sylar/http/servlet.cc.o
+
+sylar/http/servlet.i: sylar/http/servlet.cc.i
+.PHONY : sylar/http/servlet.i
+
+# target to preprocess a source file
+sylar/http/servlet.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlet.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlet.cc.i
+.PHONY : sylar/http/servlet.cc.i
+
+sylar/http/servlet.s: sylar/http/servlet.cc.s
+.PHONY : sylar/http/servlet.s
+
+# target to generate assembly for a file
+sylar/http/servlet.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlet.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlet.cc.s
+.PHONY : sylar/http/servlet.cc.s
+
+sylar/http/servlets/config_servlet.o: sylar/http/servlets/config_servlet.cc.o
+.PHONY : sylar/http/servlets/config_servlet.o
+
+# target to build an object file
+sylar/http/servlets/config_servlet.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlets/config_servlet.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlets/config_servlet.cc.o
+.PHONY : sylar/http/servlets/config_servlet.cc.o
+
+sylar/http/servlets/config_servlet.i: sylar/http/servlets/config_servlet.cc.i
+.PHONY : sylar/http/servlets/config_servlet.i
+
+# target to preprocess a source file
+sylar/http/servlets/config_servlet.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlets/config_servlet.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlets/config_servlet.cc.i
+.PHONY : sylar/http/servlets/config_servlet.cc.i
+
+sylar/http/servlets/config_servlet.s: sylar/http/servlets/config_servlet.cc.s
+.PHONY : sylar/http/servlets/config_servlet.s
+
+# target to generate assembly for a file
+sylar/http/servlets/config_servlet.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlets/config_servlet.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlets/config_servlet.cc.s
+.PHONY : sylar/http/servlets/config_servlet.cc.s
+
+sylar/http/servlets/status_servlet.o: sylar/http/servlets/status_servlet.cc.o
+.PHONY : sylar/http/servlets/status_servlet.o
+
+# target to build an object file
+sylar/http/servlets/status_servlet.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlets/status_servlet.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlets/status_servlet.cc.o
+.PHONY : sylar/http/servlets/status_servlet.cc.o
+
+sylar/http/servlets/status_servlet.i: sylar/http/servlets/status_servlet.cc.i
+.PHONY : sylar/http/servlets/status_servlet.i
+
+# target to preprocess a source file
+sylar/http/servlets/status_servlet.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlets/status_servlet.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlets/status_servlet.cc.i
+.PHONY : sylar/http/servlets/status_servlet.cc.i
+
+sylar/http/servlets/status_servlet.s: sylar/http/servlets/status_servlet.cc.s
+.PHONY : sylar/http/servlets/status_servlet.s
+
+# target to generate assembly for a file
+sylar/http/servlets/status_servlet.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/http/servlets/status_servlet.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/http/servlets/status_servlet.cc.s
+.PHONY : sylar/http/servlets/status_servlet.cc.s
 
 sylar/iomanager.o: sylar/iomanager.cc.o
 .PHONY : sylar/iomanager.o
@@ -989,32 +1110,32 @@ sylar/uri.rl.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/uri.rl.cc.s
 .PHONY : sylar/uri.rl.cc.s
 
-sylar/utils.o: sylar/utils.cc.o
-.PHONY : sylar/utils.o
+sylar/util.o: sylar/util.cc.o
+.PHONY : sylar/util.o
 
 # target to build an object file
-sylar/utils.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/utils.cc.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/utils.cc.o
-.PHONY : sylar/utils.cc.o
+sylar/util.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/util.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/util.cc.o
+.PHONY : sylar/util.cc.o
 
-sylar/utils.i: sylar/utils.cc.i
-.PHONY : sylar/utils.i
+sylar/util.i: sylar/util.cc.i
+.PHONY : sylar/util.i
 
 # target to preprocess a source file
-sylar/utils.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/utils.cc.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/utils.cc.i
-.PHONY : sylar/utils.cc.i
+sylar/util.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/util.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/util.cc.i
+.PHONY : sylar/util.cc.i
 
-sylar/utils.s: sylar/utils.cc.s
-.PHONY : sylar/utils.s
+sylar/util.s: sylar/util.cc.s
+.PHONY : sylar/util.s
 
 # target to generate assembly for a file
-sylar/utils.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/utils.cc.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/utils.cc.s
-.PHONY : sylar/utils.cc.s
+sylar/util.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/util.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/util.cc.s
+.PHONY : sylar/util.cc.s
 
 tests/test_bytearray.o: tests/test_bytearray.cc.o
 .PHONY : tests/test_bytearray.o
@@ -1184,6 +1305,30 @@ tests/test_http_parser.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_parser.dir/build.make CMakeFiles/test_http_parser.dir/tests/test_http_parser.cc.s
 .PHONY : tests/test_http_parser.cc.s
 
+tests/test_http_server.o: tests/test_http_server.cc.o
+.PHONY : tests/test_http_server.o
+
+# target to build an object file
+tests/test_http_server.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/tests/test_http_server.cc.o
+.PHONY : tests/test_http_server.cc.o
+
+tests/test_http_server.i: tests/test_http_server.cc.i
+.PHONY : tests/test_http_server.i
+
+# target to preprocess a source file
+tests/test_http_server.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/tests/test_http_server.cc.i
+.PHONY : tests/test_http_server.cc.i
+
+tests/test_http_server.s: tests/test_http_server.cc.s
+.PHONY : tests/test_http_server.s
+
+# target to generate assembly for a file
+tests/test_http_server.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/tests/test_http_server.cc.s
+.PHONY : tests/test_http_server.cc.s
+
 tests/test_iomanager.o: tests/test_iomanager.cc.o
 .PHONY : tests/test_iomanager.o
 
@@ -1345,6 +1490,7 @@ help:
 	@echo "... test_http"
 	@echo "... test_http_connection"
 	@echo "... test_http_parser"
+	@echo "... test_http_server"
 	@echo "... test_iomanager"
 	@echo "... test_log"
 	@echo "... test_scheduler"
@@ -1384,12 +1530,24 @@ help:
 	@echo "... sylar/http/http_parser.o"
 	@echo "... sylar/http/http_parser.i"
 	@echo "... sylar/http/http_parser.s"
+	@echo "... sylar/http/http_server.o"
+	@echo "... sylar/http/http_server.i"
+	@echo "... sylar/http/http_server.s"
 	@echo "... sylar/http/http_session.o"
 	@echo "... sylar/http/http_session.i"
 	@echo "... sylar/http/http_session.s"
 	@echo "... sylar/http/httpclient_parser.rl.o"
 	@echo "... sylar/http/httpclient_parser.rl.i"
 	@echo "... sylar/http/httpclient_parser.rl.s"
+	@echo "... sylar/http/servlet.o"
+	@echo "... sylar/http/servlet.i"
+	@echo "... sylar/http/servlet.s"
+	@echo "... sylar/http/servlets/config_servlet.o"
+	@echo "... sylar/http/servlets/config_servlet.i"
+	@echo "... sylar/http/servlets/config_servlet.s"
+	@echo "... sylar/http/servlets/status_servlet.o"
+	@echo "... sylar/http/servlets/status_servlet.i"
+	@echo "... sylar/http/servlets/status_servlet.s"
 	@echo "... sylar/iomanager.o"
 	@echo "... sylar/iomanager.i"
 	@echo "... sylar/iomanager.s"
@@ -1426,9 +1584,9 @@ help:
 	@echo "... sylar/uri.rl.o"
 	@echo "... sylar/uri.rl.i"
 	@echo "... sylar/uri.rl.s"
-	@echo "... sylar/utils.o"
-	@echo "... sylar/utils.i"
-	@echo "... sylar/utils.s"
+	@echo "... sylar/util.o"
+	@echo "... sylar/util.i"
+	@echo "... sylar/util.s"
 	@echo "... tests/test_bytearray.o"
 	@echo "... tests/test_bytearray.i"
 	@echo "... tests/test_bytearray.s"
@@ -1450,6 +1608,9 @@ help:
 	@echo "... tests/test_http_parser.o"
 	@echo "... tests/test_http_parser.i"
 	@echo "... tests/test_http_parser.s"
+	@echo "... tests/test_http_server.o"
+	@echo "... tests/test_http_server.i"
+	@echo "... tests/test_http_server.s"
 	@echo "... tests/test_iomanager.o"
 	@echo "... tests/test_iomanager.i"
 	@echo "... tests/test_iomanager.s"

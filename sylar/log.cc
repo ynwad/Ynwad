@@ -9,7 +9,7 @@
 #include <stdarg.h>
 // #include <sys/stat.h>
 // #include <sys/types.h>
-#include "utils.h"
+#include "util.h"
 #include "config.h"
 #include "env.h"
 

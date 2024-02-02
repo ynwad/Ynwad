@@ -1,6 +1,6 @@
 #include "config.h"
 #include "env.h"
-#include "utils.h"
+#include "util.h"
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>

@@ -34,8 +34,9 @@ void run() {
 
     sylar::http::HttpConnection::ptr conn(new sylar::http::HttpConnection(sock));
     sylar::http::HttpRequest::ptr req(new sylar::http::HttpRequest);
-    req->setPath("/");
+    req->setPath("/s");
     req->setHeader("host", "www.baidu.com");
+    req->setQuery("wd=编译器");
     SYLAR_LOG_INFO(g_logger) << "req:" << std::endl
         << *req;
 
