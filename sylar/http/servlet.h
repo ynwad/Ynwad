@@ -186,7 +186,7 @@ public:
     }
 
     template<class T>
-    void addGlobServletCreator(const std::string& uri) {
+    void addGlobServletCreator(const std::string& uri) { 
         addGlobServletCreator(uri, std::make_shared<ServletCreator<T> >());
     }
 
@@ -245,7 +245,7 @@ private:
     std::unordered_map<std::string, IServletCreator::ptr> m_datas;
     /// 模糊匹配servlet 数组
     /// uri(/sylar/*) -> servlet
-    std::vector<std::pair<std::string, IServletCreator::ptr> > m_globs;
+    std::vector<std::pair<std::string, IServletCreator::ptr>> m_globs;
     /// 默认servlet，所有路径都没匹配到时使用
     Servlet::ptr m_default;
 };

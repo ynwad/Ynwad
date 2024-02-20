@@ -55,6 +55,7 @@ set(LIB_SRC
     sylar/stream.cc
     sylar/streams/socket_stream.cc
     sylar/streams/zlib_stream.cc
+    sylar/util/json_util.cc
 )
 
 ragelmaker(sylar/http/http11_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/sylar/http)
@@ -72,6 +73,7 @@ SET_TARGET_PROPERTIES (sylar_static PROPERTIES OUTPUT_NAME "sylar")
 set(LIBS
     sylar
     yaml-cpp
+    jsoncpp
     ${OPENSSL_LIBRARIES}
     ${ZLIB_LIBRARIES}
 )

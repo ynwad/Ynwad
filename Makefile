@@ -1137,6 +1137,33 @@ sylar/util.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/util.cc.s
 .PHONY : sylar/util.cc.s
 
+sylar/util/json_util.o: sylar/util/json_util.cc.o
+.PHONY : sylar/util/json_util.o
+
+# target to build an object file
+sylar/util/json_util.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/util/json_util.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/util/json_util.cc.o
+.PHONY : sylar/util/json_util.cc.o
+
+sylar/util/json_util.i: sylar/util/json_util.cc.i
+.PHONY : sylar/util/json_util.i
+
+# target to preprocess a source file
+sylar/util/json_util.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/util/json_util.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/util/json_util.cc.i
+.PHONY : sylar/util/json_util.cc.i
+
+sylar/util/json_util.s: sylar/util/json_util.cc.s
+.PHONY : sylar/util/json_util.s
+
+# target to generate assembly for a file
+sylar/util/json_util.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/util/json_util.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/util/json_util.cc.s
+.PHONY : sylar/util/json_util.cc.s
+
 tests/test_bytearray.o: tests/test_bytearray.cc.o
 .PHONY : tests/test_bytearray.o
 
@@ -1587,6 +1614,9 @@ help:
 	@echo "... sylar/util.o"
 	@echo "... sylar/util.i"
 	@echo "... sylar/util.s"
+	@echo "... sylar/util/json_util.o"
+	@echo "... sylar/util/json_util.i"
+	@echo "... sylar/util/json_util.s"
 	@echo "... tests/test_bytearray.o"
 	@echo "... tests/test_bytearray.i"
 	@echo "... tests/test_bytearray.s"

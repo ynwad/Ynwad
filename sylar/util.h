@@ -34,8 +34,8 @@
 #include <iostream>
 #include <boost/lexical_cast.hpp>
 // #include <google/protobuf/message.h>
-// #include "sylar/util/hash_util.h"
-// #include "sylar/util/json_util.h"
+#include "sylar/util/hash_util.h"
+#include "sylar/util/json_util.h"
 // #include "sylar/util/crypto_util.h"
 
 namespace sylar {
@@ -118,6 +118,16 @@ public:
     static std::string WStringToString(const std::wstring& ws);
     static std::wstring StringToWString(const std::string& s);
 
+};
+
+class TypeUtil {
+public:
+    static int8_t ToChar(const std::string& str);
+    static int64_t Atoi(const std::string& str);
+    static double Atof(const std::string& str);
+    static int8_t ToChar(const char* str);
+    static int64_t Atoi(const char* str);
+    static double Atof(const char* str);
 };
 
 }

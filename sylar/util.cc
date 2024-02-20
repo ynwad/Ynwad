@@ -360,6 +360,48 @@ static const char xdigit_chars[256] = {
 #define CHAR_IS_UNRESERVED(c)           \
     (uri_chars[(unsigned char)(c)])
 
+int8_t  TypeUtil::ToChar(const std::string& str) {
+    if(str.empty()) {
+        return 0;
+    }
+    return *str.begin();
+}
+
+int64_t TypeUtil::Atoi(const std::string& str) {
+    if(str.empty()) {
+        return 0;
+    }
+    return strtoull(str.c_str(), nullptr, 10);
+}
+
+double  TypeUtil::Atof(const std::string& str) {
+    if(str.empty()) {
+        return 0;
+    }
+    return atof(str.c_str());
+}
+
+int8_t  TypeUtil::ToChar(const char* str) {
+    if(str == nullptr) {
+        return 0;
+    }
+    return str[0];
+}
+
+int64_t TypeUtil::Atoi(const char* str) {
+    if(str == nullptr) {
+        return 0;
+    }
+    return strtoull(str, nullptr, 10);
+}
+
+double  TypeUtil::Atof(const char* str) {
+    if(str == nullptr) {
+        return 0;
+    }
+    return atof(str);
+}
+
 //-.0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~
 std::string StringUtil::UrlEncode(const std::string& str, bool space_as_plus) {
     static const char *hexdigits = "0123456789ABCDEF";
