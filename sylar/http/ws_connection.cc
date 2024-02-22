@@ -67,7 +67,7 @@ std::pair<HttpResult::ptr, WSConnection::ptr> WSConnection::Create(Uri::ptr uri
         req->setHeader("Host", uri->getHost());
     }
 
-   int rt = conn->sendRequest(req);
+    int rt = conn->sendRequest(req);
     if(rt == 0) {
         return std::make_pair(std::make_shared<HttpResult>((int)HttpResult::Error::SEND_CLOSE_BY_PEER
                 , nullptr, "send request closed by peer: " + addr->toString()), nullptr);
