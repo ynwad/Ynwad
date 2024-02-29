@@ -34,6 +34,8 @@ set(LIB_SRC
     sylar/log.cc
     sylar/thread.cc
     sylar/config.cc
+    sylar/email/email.cc
+    sylar/email/smtp.cc
     sylar/env.cc
     sylar/fiber.cc
     sylar/timer.cc
@@ -100,6 +102,8 @@ sylar_add_executable(test_http_connection "tests/test_http_connection.cc" sylar 
 sylar_add_executable(test_http_server "tests/test_http_server.cc" sylar "${LIBS}")
 sylar_add_executable(test_ws_client "tests/test_ws_client.cc" sylar "${LIBS}")
 sylar_add_executable(test_ws_server "tests/test_ws_server.cc" sylar "${LIBS}")
+sylar_add_executable(test_email "tests/test_email.cc" sylar "${LIBS}")
+
 # target_link_libraries(test sylar)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)

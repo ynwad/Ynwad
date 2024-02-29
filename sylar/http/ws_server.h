@@ -19,6 +19,7 @@ public:
 
 protected:
     virtual void handleClient(Socket::ptr client) override;
+    
 protected:
     WSServletDispatch::ptr m_dispatch;
 

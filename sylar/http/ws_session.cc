@@ -176,8 +176,9 @@ WSFrameMessage::ptr WSRecvMessage(Stream* stream, bool client) {
                 SYLAR_LOG_DEBUG(g_logger) << data;
                 return WSFrameMessage::ptr(new WSFrameMessage(opcode, std::move(data)));
             }
-        } else {
-            SYLAR_LOG_DEBUG(g_logger) << "invalid opcode=" << ws_head.opcode;
+        } else if(ws_head.opcode == WSFrameHead::CLOSE){
+            SYLAR_LOG_DEBUG(g_logger) << "close connection, opcode=" << ws_head.opcode;
+            break;
         }
     } while(true);
     stream->close();

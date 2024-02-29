@@ -17,11 +17,24 @@ void run() {
         return 0;
     };
 
-    server->getWSServletDispatch()->addServlet("/sylar", fun);
+    auto onConnected_fun = [](sylar::http::HttpRequest::ptr header
+                  ,sylar::http::WSSession::ptr session) {
+        SYLAR_LOG_INFO(g_logger) << "111111onConnected_funonConnected_funonConnected_funonConnected_fun";
+        return 0;
+    };
+
+    auto onClose_fun = [](sylar::http::HttpRequest::ptr header
+                  ,sylar::http::WSSession::ptr session) {
+        SYLAR_LOG_INFO(g_logger) << "2222222222onClose_funonClose_funonClose_funonClose_funonClose_funonClose_funonClose_fun";
+        return 0;
+    };
+
+    server->getWSServletDispatch()->addServlet("/sylar", fun, onConnected_fun, onClose_fun);
     while(!server->bind(addr)) {
         SYLAR_LOG_ERROR(g_logger) << "bind " << *addr << " fail";
         sleep(1);
     }
+
     server->start();
 }
 

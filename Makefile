@@ -353,6 +353,19 @@ test_ws_server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_ws_server.dir/build.make CMakeFiles/test_ws_server.dir/build
 .PHONY : test_ws_server/fast
 
+#=============================================================================
+# Target rules for targets named test_email
+
+# Build rule for target.
+test_email: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_email
+.PHONY : test_email
+
+# fast build rule for target.
+test_email/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_email.dir/build.make CMakeFiles/test_email.dir/build
+.PHONY : test_email/fast
+
 sylar/address.o: sylar/address.cc.o
 .PHONY : sylar/address.o
 
@@ -433,6 +446,60 @@ sylar/config.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/config.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/config.cc.s
 .PHONY : sylar/config.cc.s
+
+sylar/email/email.o: sylar/email/email.cc.o
+.PHONY : sylar/email/email.o
+
+# target to build an object file
+sylar/email/email.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/email/email.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/email/email.cc.o
+.PHONY : sylar/email/email.cc.o
+
+sylar/email/email.i: sylar/email/email.cc.i
+.PHONY : sylar/email/email.i
+
+# target to preprocess a source file
+sylar/email/email.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/email/email.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/email/email.cc.i
+.PHONY : sylar/email/email.cc.i
+
+sylar/email/email.s: sylar/email/email.cc.s
+.PHONY : sylar/email/email.s
+
+# target to generate assembly for a file
+sylar/email/email.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/email/email.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/email/email.cc.s
+.PHONY : sylar/email/email.cc.s
+
+sylar/email/smtp.o: sylar/email/smtp.cc.o
+.PHONY : sylar/email/smtp.o
+
+# target to build an object file
+sylar/email/smtp.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/email/smtp.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/email/smtp.cc.o
+.PHONY : sylar/email/smtp.cc.o
+
+sylar/email/smtp.i: sylar/email/smtp.cc.i
+.PHONY : sylar/email/smtp.i
+
+# target to preprocess a source file
+sylar/email/smtp.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/email/smtp.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/email/smtp.cc.i
+.PHONY : sylar/email/smtp.cc.i
+
+sylar/email/smtp.s: sylar/email/smtp.cc.s
+.PHONY : sylar/email/smtp.s
+
+# target to generate assembly for a file
+sylar/email/smtp.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/email/smtp.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/email/smtp.cc.s
+.PHONY : sylar/email/smtp.cc.s
 
 sylar/env.o: sylar/env.cc.o
 .PHONY : sylar/env.o
@@ -1373,6 +1440,30 @@ tests/test_config.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
 .PHONY : tests/test_config.cc.s
 
+tests/test_email.o: tests/test_email.cc.o
+.PHONY : tests/test_email.o
+
+# target to build an object file
+tests/test_email.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_email.dir/build.make CMakeFiles/test_email.dir/tests/test_email.cc.o
+.PHONY : tests/test_email.cc.o
+
+tests/test_email.i: tests/test_email.cc.i
+.PHONY : tests/test_email.i
+
+# target to preprocess a source file
+tests/test_email.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_email.dir/build.make CMakeFiles/test_email.dir/tests/test_email.cc.i
+.PHONY : tests/test_email.cc.i
+
+tests/test_email.s: tests/test_email.cc.s
+.PHONY : tests/test_email.s
+
+# target to generate assembly for a file
+tests/test_email.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_email.dir/build.make CMakeFiles/test_email.dir/tests/test_email.cc.s
+.PHONY : tests/test_email.cc.s
+
 tests/test_fiber.o: tests/test_fiber.cc.o
 .PHONY : tests/test_fiber.o
 
@@ -1721,6 +1812,7 @@ help:
 	@echo "... sylar_static"
 	@echo "... test_bytearray"
 	@echo "... test_config"
+	@echo "... test_email"
 	@echo "... test_fiber"
 	@echo "... test_hook"
 	@echo "... test_http"
@@ -1744,6 +1836,12 @@ help:
 	@echo "... sylar/config.o"
 	@echo "... sylar/config.i"
 	@echo "... sylar/config.s"
+	@echo "... sylar/email/email.o"
+	@echo "... sylar/email/email.i"
+	@echo "... sylar/email/email.s"
+	@echo "... sylar/email/smtp.o"
+	@echo "... sylar/email/smtp.i"
+	@echo "... sylar/email/smtp.s"
 	@echo "... sylar/env.o"
 	@echo "... sylar/env.i"
 	@echo "... sylar/env.s"
@@ -1849,6 +1947,9 @@ help:
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
+	@echo "... tests/test_email.o"
+	@echo "... tests/test_email.i"
+	@echo "... tests/test_email.s"
 	@echo "... tests/test_fiber.o"
 	@echo "... tests/test_fiber.i"
 	@echo "... tests/test_fiber.s"

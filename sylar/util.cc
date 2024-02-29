@@ -289,6 +289,18 @@ std::string FSUtil::Dirname(const std::string& filename){
     }
 }
 
+std::string FSUtil::Basename(const std::string& filename) {
+    if(filename.empty()) {
+        return filename;
+    }
+    auto pos = filename.rfind('/');
+    if(pos == std::string::npos) {
+        return filename;
+    } else {
+        return filename.substr(pos + 1);
+    }
+}
+
 bool FSUtil::Unlink(const std::string& filename, bool exist) {
     if(!exist && __lstat(filename.c_str())) {
         return true;

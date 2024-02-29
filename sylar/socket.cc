@@ -621,6 +621,7 @@ bool SSLSocket::loadCertificates(const std::string& cert_file, const std::string
             << cert_file << " key_file=" << key_file;
         return false;
     }
+    SYLAR_LOG_INFO(g_logger) << "loadCertificates finished";
     return true;
 }
 
