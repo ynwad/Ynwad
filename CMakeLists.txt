@@ -34,6 +34,7 @@ set(LIB_SRC
     sylar/log.cc
     sylar/thread.cc
     sylar/config.cc
+    sylar/db/sqlite3.cc
     sylar/email/email.cc
     sylar/email/smtp.cc
     sylar/env.cc
@@ -82,6 +83,7 @@ set(LIBS
     sylar
     yaml-cpp
     jsoncpp
+    sqlite3
     ${OPENSSL_LIBRARIES}
     ${ZLIB_LIBRARIES}
 )
@@ -103,6 +105,7 @@ sylar_add_executable(test_http_server "tests/test_http_server.cc" sylar "${LIBS}
 sylar_add_executable(test_ws_client "tests/test_ws_client.cc" sylar "${LIBS}")
 sylar_add_executable(test_ws_server "tests/test_ws_server.cc" sylar "${LIBS}")
 sylar_add_executable(test_email "tests/test_email.cc" sylar "${LIBS}")
+sylar_add_executable(test_sqlite3 "tests/test_sqlite3.cc" sylar "${LIBS}")
 
 # target_link_libraries(test sylar)
 

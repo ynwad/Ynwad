@@ -366,6 +366,19 @@ test_email/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_email.dir/build.make CMakeFiles/test_email.dir/build
 .PHONY : test_email/fast
 
+#=============================================================================
+# Target rules for targets named test_sqlite3
+
+# Build rule for target.
+test_sqlite3: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_sqlite3
+.PHONY : test_sqlite3
+
+# fast build rule for target.
+test_sqlite3/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_sqlite3.dir/build.make CMakeFiles/test_sqlite3.dir/build
+.PHONY : test_sqlite3/fast
+
 sylar/address.o: sylar/address.cc.o
 .PHONY : sylar/address.o
 
@@ -446,6 +459,33 @@ sylar/config.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/config.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/config.cc.s
 .PHONY : sylar/config.cc.s
+
+sylar/db/sqlite3.o: sylar/db/sqlite3.cc.o
+.PHONY : sylar/db/sqlite3.o
+
+# target to build an object file
+sylar/db/sqlite3.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/db/sqlite3.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/db/sqlite3.cc.o
+.PHONY : sylar/db/sqlite3.cc.o
+
+sylar/db/sqlite3.i: sylar/db/sqlite3.cc.i
+.PHONY : sylar/db/sqlite3.i
+
+# target to preprocess a source file
+sylar/db/sqlite3.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/db/sqlite3.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/db/sqlite3.cc.i
+.PHONY : sylar/db/sqlite3.cc.i
+
+sylar/db/sqlite3.s: sylar/db/sqlite3.cc.s
+.PHONY : sylar/db/sqlite3.s
+
+# target to generate assembly for a file
+sylar/db/sqlite3.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/db/sqlite3.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/db/sqlite3.cc.s
+.PHONY : sylar/db/sqlite3.cc.s
 
 sylar/email/email.o: sylar/email/email.cc.o
 .PHONY : sylar/email/email.o
@@ -1704,6 +1744,30 @@ tests/test_socket.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/tests/test_socket.cc.s
 .PHONY : tests/test_socket.cc.s
 
+tests/test_sqlite3.o: tests/test_sqlite3.cc.o
+.PHONY : tests/test_sqlite3.o
+
+# target to build an object file
+tests/test_sqlite3.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_sqlite3.dir/build.make CMakeFiles/test_sqlite3.dir/tests/test_sqlite3.cc.o
+.PHONY : tests/test_sqlite3.cc.o
+
+tests/test_sqlite3.i: tests/test_sqlite3.cc.i
+.PHONY : tests/test_sqlite3.i
+
+# target to preprocess a source file
+tests/test_sqlite3.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_sqlite3.dir/build.make CMakeFiles/test_sqlite3.dir/tests/test_sqlite3.cc.i
+.PHONY : tests/test_sqlite3.cc.i
+
+tests/test_sqlite3.s: tests/test_sqlite3.cc.s
+.PHONY : tests/test_sqlite3.s
+
+# target to generate assembly for a file
+tests/test_sqlite3.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_sqlite3.dir/build.make CMakeFiles/test_sqlite3.dir/tests/test_sqlite3.cc.s
+.PHONY : tests/test_sqlite3.cc.s
+
 tests/test_tcp_server.o: tests/test_tcp_server.cc.o
 .PHONY : tests/test_tcp_server.o
 
@@ -1823,6 +1887,7 @@ help:
 	@echo "... test_log"
 	@echo "... test_scheduler"
 	@echo "... test_socket"
+	@echo "... test_sqlite3"
 	@echo "... test_tcp_server"
 	@echo "... test_thread"
 	@echo "... test_ws_client"
@@ -1836,6 +1901,9 @@ help:
 	@echo "... sylar/config.o"
 	@echo "... sylar/config.i"
 	@echo "... sylar/config.s"
+	@echo "... sylar/db/sqlite3.o"
+	@echo "... sylar/db/sqlite3.i"
+	@echo "... sylar/db/sqlite3.s"
 	@echo "... sylar/email/email.o"
 	@echo "... sylar/email/email.i"
 	@echo "... sylar/email/email.s"
@@ -1980,6 +2048,9 @@ help:
 	@echo "... tests/test_socket.o"
 	@echo "... tests/test_socket.i"
 	@echo "... tests/test_socket.s"
+	@echo "... tests/test_sqlite3.o"
+	@echo "... tests/test_sqlite3.i"
+	@echo "... tests/test_sqlite3.s"
 	@echo "... tests/test_tcp_server.o"
 	@echo "... tests/test_tcp_server.i"
 	@echo "... tests/test_tcp_server.s"
