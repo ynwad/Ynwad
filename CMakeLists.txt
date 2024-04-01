@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(sylar)
 
-cmake_policy(SET CMP0045 OLD)
-
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 include (cmake/utils.cmake)
 
 add_definitions(-Wno-builtin-macro-redefined)
@@ -11,9 +10,10 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 #C++ 编译标志相关变量。
 # set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function -lcrypto")
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated-declarations -Werror -Wno-unused-function -lcrypto")
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -pthread -g -std=c++17 -Wall -Wno-deprecated-declarations -Werror -Wno-unused-function -lcrypto")
 
 include_directories(.)
+include_directories(/usr/include/jsoncpp)
 
 link_directories(/usr/local/lib)
 
@@ -27,6 +27,13 @@ if(ZLIB_FOUND)
     include_directories(${ZLIB_INCLUDE_DIR})
 endif()
 
+find_package(MariaDB REQUIRED)
+if(MariaDB_FOUND)
+    include_directories(${MYSQL_INCLUDE_DIR})
+endif()
+message("MYSQL_INCLUDE_DIR:       ${MYSQL_INCLUDE_DIR}")
+message("MYSQL_LIBRARIES:       ${MYSQL_LIBRARIES}")
+
 #设置变量
 set(LIB_SRC
     sylar/mutex.cc
@@ -35,6 +42,7 @@ set(LIB_SRC
     sylar/thread.cc
     sylar/config.cc
     sylar/db/sqlite3.cc
+    sylar/db/mysql.cc
     sylar/email/email.cc
     sylar/email/smtp.cc
     sylar/env.cc
@@ -86,6 +94,7 @@ set(LIBS
     sqlite3
     ${OPENSSL_LIBRARIES}
     ${ZLIB_LIBRARIES}
+    mariadbclient
 )
 
 sylar_add_executable(test_log "tests/test_log.cc" sylar "${LIBS}")
@@ -106,6 +115,8 @@ sylar_add_executable(test_ws_client "tests/test_ws_client.cc" sylar "${LIBS}")
 sylar_add_executable(test_ws_server "tests/test_ws_server.cc" sylar "${LIBS}")
 sylar_add_executable(test_email "tests/test_email.cc" sylar "${LIBS}")
 sylar_add_executable(test_sqlite3 "tests/test_sqlite3.cc" sylar "${LIBS}")
+sylar_add_executable(test_mysql "tests/test_mysql.cc" sylar "${LIBS}")
+
 
 # target_link_libraries(test sylar)
 

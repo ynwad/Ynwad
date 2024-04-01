@@ -11,8 +11,8 @@ void run() {
     // g_logger->setLevel(sylar::LogLevel::INFO);
     //sylar::http::HttpServer::ptr server(new sylar::http::HttpServer(true, worker.get(), sylar::IOManager::GetThis()));
     sylar::http::HttpServer::ptr server(new sylar::http::HttpServer(true));
-    sylar::Address::ptr addr = sylar::Address::LookupAnyIPAddress("0.0.0.0:8020");
-    while(!server->bind(addr, true)) {
+    sylar::Address::ptr addr = sylar::Address::LookupAnyIPAddress("192.168.31.101:8020");
+    while(!server->bind(addr, false)) {
         sleep(2);
     }
     auto sd = server->getServletDispatch();
@@ -49,8 +49,8 @@ void run() {
 ));
             return 0;
     });
-    server->loadCertificates("/home/ynwad/workspace/ynwad/bin/https_Certificate/cacert.pem", 
-                             "/home/ynwad/workspace/ynwad/bin/https_Certificate/privkey.pem");
+    // server->loadCertificates("/home/ynwad/workspace/ynwad/bin/https_Certificate/cacert.pem", 
+    //                          "/home/ynwad/workspace/ynwad/bin/https_Certificate/privkey.pem");
     server->start();
 }
 
