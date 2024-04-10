@@ -20,7 +20,6 @@ int main()
     logger->addAppender(stdappender);
     logger->addAppender(file_appender);
     std::string ss = "123456677";
-    SYLAR_LOG_LEVEL(logger, sylar::LogLevel::FATAL)<<"222222222222222222222222222222"<<"  "<<ss;
     SYLAR_LOG_FATAL(logger) << 11111;
 
     SYLAR_LOG_FMT_ERROR(logger, "test macro fmt error %s", "aa");

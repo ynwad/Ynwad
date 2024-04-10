@@ -128,7 +128,7 @@ retry:
         sylar::Timer::ptr timer;
         std::weak_ptr<timer_info> winfo(tinfo);
 
-        if(to != (uint64_t)-1) {
+        if(to != (uint64_t)-1 && to != 0) {
             timer = iom->addConditionTimer(to, [winfo, fd, iom, event]() {
                 auto t = winfo.lock();
                 if(!t || t->cancelled) {

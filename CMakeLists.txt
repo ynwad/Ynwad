@@ -43,6 +43,10 @@ set(LIB_SRC
     sylar/config.cc
     sylar/db/sqlite3.cc
     sylar/db/mysql.cc
+    sylar/ds/bitmap.cc
+    sylar/ds/roaring_bitmap.cc
+    sylar/ds/roaring.c
+    sylar/ds/util.cc
     sylar/email/email.cc
     sylar/email/smtp.cc
     sylar/env.cc
@@ -116,6 +120,7 @@ sylar_add_executable(test_ws_server "tests/test_ws_server.cc" sylar "${LIBS}")
 sylar_add_executable(test_email "tests/test_email.cc" sylar "${LIBS}")
 sylar_add_executable(test_sqlite3 "tests/test_sqlite3.cc" sylar "${LIBS}")
 sylar_add_executable(test_mysql "tests/test_mysql.cc" sylar "${LIBS}")
+sylar_add_executable(test_dict "tests/test_dict.cc" sylar "${LIBS}")
 
 
 # target_link_libraries(test sylar)

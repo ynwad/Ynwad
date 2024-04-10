@@ -1,6 +1,10 @@
 #include <iostream>
 #include "sylar/db/mysql.h"
 #include "sylar/iomanager.h"
+#include "sylar/log.h"
+#include "sylar/util.h"
+
+static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 
 void run() {
     do {
@@ -9,8 +13,9 @@ void run() {
         params["user"] = "ynwad";
         params["passwd"] = "ynwad";
         params["dbname"] = "blog";
-// params["connect_timeout"]=1000;
+
         sylar::MySQL::ptr mysql(new sylar::MySQL(params));
+
         if(!mysql->connect()) {
             std::cout << "connect fail" << std::endl;
             return;
@@ -25,9 +30,9 @@ void run() {
         //b.buffer = &a;
         //mysql_stmt_bind_param(m_   update users set update_time = '2024-04-02 00:31:52' where id = 2
         // sylar::MySQLStmt::ptr stmt = sylar::MySQLStmt::Create(mysql, "update users set update_time = ? where id = 2");
-        sylar::MySQLStmt::ptr stmt = sylar::MySQLStmt::Create(mysql, "update users set update_time = '2024-04-02 00:31:52' where id = 2");
+        sylar::MySQLStmt::ptr stmt = sylar::MySQLStmt::Create(mysql, "update user_accounts set password = ? where id = 2");
         
-        // stmt->bindString(1, "2024-04-02 00:31:52");
+        stmt->bindString(1, "00000000000000");
         int rt = stmt->execute();
         std::cout << "rt=" << rt << std::endl;
 
@@ -69,8 +74,9 @@ void run() {
 }
 
 int main(int argc, char** argv) {
-    sylar::IOManager iom(1);
-    //iom.schedule(run);
+    sylar::IOManager iom(1, false);
+    // iom.schedule(run);
+    // run();
     iom.addTimer(1000, run, true);
     return 0;
 }

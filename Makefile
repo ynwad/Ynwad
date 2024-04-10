@@ -159,6 +159,19 @@ test_ws_server/fast:
 .PHONY : test_ws_server/fast
 
 #=============================================================================
+# Target rules for targets named test_dict
+
+# Build rule for target.
+test_dict: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_dict
+.PHONY : test_dict
+
+# fast build rule for target.
+test_dict/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dict.dir/build.make CMakeFiles/test_dict.dir/build
+.PHONY : test_dict/fast
+
+#=============================================================================
 # Target rules for targets named test_ws_client
 
 # Build rule for target.
@@ -554,6 +567,126 @@ sylar/db/sqlite3.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/db/sqlite3.cc.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/db/sqlite3.cc.s
 .PHONY : sylar/db/sqlite3.cc.s
+
+sylar/ds/bitmap.o: sylar/ds/bitmap.cc.o
+
+.PHONY : sylar/ds/bitmap.o
+
+# target to build an object file
+sylar/ds/bitmap.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/bitmap.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/bitmap.cc.o
+.PHONY : sylar/ds/bitmap.cc.o
+
+sylar/ds/bitmap.i: sylar/ds/bitmap.cc.i
+
+.PHONY : sylar/ds/bitmap.i
+
+# target to preprocess a source file
+sylar/ds/bitmap.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/bitmap.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/bitmap.cc.i
+.PHONY : sylar/ds/bitmap.cc.i
+
+sylar/ds/bitmap.s: sylar/ds/bitmap.cc.s
+
+.PHONY : sylar/ds/bitmap.s
+
+# target to generate assembly for a file
+sylar/ds/bitmap.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/bitmap.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/bitmap.cc.s
+.PHONY : sylar/ds/bitmap.cc.s
+
+sylar/ds/roaring.o: sylar/ds/roaring.c.o
+
+.PHONY : sylar/ds/roaring.o
+
+# target to build an object file
+sylar/ds/roaring.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/roaring.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/roaring.c.o
+.PHONY : sylar/ds/roaring.c.o
+
+sylar/ds/roaring.i: sylar/ds/roaring.c.i
+
+.PHONY : sylar/ds/roaring.i
+
+# target to preprocess a source file
+sylar/ds/roaring.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/roaring.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/roaring.c.i
+.PHONY : sylar/ds/roaring.c.i
+
+sylar/ds/roaring.s: sylar/ds/roaring.c.s
+
+.PHONY : sylar/ds/roaring.s
+
+# target to generate assembly for a file
+sylar/ds/roaring.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/roaring.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/roaring.c.s
+.PHONY : sylar/ds/roaring.c.s
+
+sylar/ds/roaring_bitmap.o: sylar/ds/roaring_bitmap.cc.o
+
+.PHONY : sylar/ds/roaring_bitmap.o
+
+# target to build an object file
+sylar/ds/roaring_bitmap.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/roaring_bitmap.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/roaring_bitmap.cc.o
+.PHONY : sylar/ds/roaring_bitmap.cc.o
+
+sylar/ds/roaring_bitmap.i: sylar/ds/roaring_bitmap.cc.i
+
+.PHONY : sylar/ds/roaring_bitmap.i
+
+# target to preprocess a source file
+sylar/ds/roaring_bitmap.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/roaring_bitmap.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/roaring_bitmap.cc.i
+.PHONY : sylar/ds/roaring_bitmap.cc.i
+
+sylar/ds/roaring_bitmap.s: sylar/ds/roaring_bitmap.cc.s
+
+.PHONY : sylar/ds/roaring_bitmap.s
+
+# target to generate assembly for a file
+sylar/ds/roaring_bitmap.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/roaring_bitmap.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/roaring_bitmap.cc.s
+.PHONY : sylar/ds/roaring_bitmap.cc.s
+
+sylar/ds/util.o: sylar/ds/util.cc.o
+
+.PHONY : sylar/ds/util.o
+
+# target to build an object file
+sylar/ds/util.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/util.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/util.cc.o
+.PHONY : sylar/ds/util.cc.o
+
+sylar/ds/util.i: sylar/ds/util.cc.i
+
+.PHONY : sylar/ds/util.i
+
+# target to preprocess a source file
+sylar/ds/util.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/util.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/util.cc.i
+.PHONY : sylar/ds/util.cc.i
+
+sylar/ds/util.s: sylar/ds/util.cc.s
+
+.PHONY : sylar/ds/util.s
+
+# target to generate assembly for a file
+sylar/ds/util.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar.dir/build.make CMakeFiles/sylar.dir/sylar/ds/util.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sylar_static.dir/build.make CMakeFiles/sylar_static.dir/sylar/ds/util.cc.s
+.PHONY : sylar/ds/util.cc.s
 
 sylar/email/email.o: sylar/email/email.cc.o
 
@@ -1659,6 +1792,33 @@ tests/test_config.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
 .PHONY : tests/test_config.cc.s
 
+tests/test_dict.o: tests/test_dict.cc.o
+
+.PHONY : tests/test_dict.o
+
+# target to build an object file
+tests/test_dict.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dict.dir/build.make CMakeFiles/test_dict.dir/tests/test_dict.cc.o
+.PHONY : tests/test_dict.cc.o
+
+tests/test_dict.i: tests/test_dict.cc.i
+
+.PHONY : tests/test_dict.i
+
+# target to preprocess a source file
+tests/test_dict.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dict.dir/build.make CMakeFiles/test_dict.dir/tests/test_dict.cc.i
+.PHONY : tests/test_dict.cc.i
+
+tests/test_dict.s: tests/test_dict.cc.s
+
+.PHONY : tests/test_dict.s
+
+# target to generate assembly for a file
+tests/test_dict.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_dict.dir/build.make CMakeFiles/test_dict.dir/tests/test_dict.cc.s
+.PHONY : tests/test_dict.cc.s
+
 tests/test_email.o: tests/test_email.cc.o
 
 .PHONY : tests/test_email.o
@@ -2130,6 +2290,7 @@ help:
 	@echo "... sylar_static"
 	@echo "... test_bytearray"
 	@echo "... test_config"
+	@echo "... test_dict"
 	@echo "... test_email"
 	@echo "... test_fiber"
 	@echo "... test_hook"
@@ -2162,6 +2323,18 @@ help:
 	@echo "... sylar/db/sqlite3.o"
 	@echo "... sylar/db/sqlite3.i"
 	@echo "... sylar/db/sqlite3.s"
+	@echo "... sylar/ds/bitmap.o"
+	@echo "... sylar/ds/bitmap.i"
+	@echo "... sylar/ds/bitmap.s"
+	@echo "... sylar/ds/roaring.o"
+	@echo "... sylar/ds/roaring.i"
+	@echo "... sylar/ds/roaring.s"
+	@echo "... sylar/ds/roaring_bitmap.o"
+	@echo "... sylar/ds/roaring_bitmap.i"
+	@echo "... sylar/ds/roaring_bitmap.s"
+	@echo "... sylar/ds/util.o"
+	@echo "... sylar/ds/util.i"
+	@echo "... sylar/ds/util.s"
 	@echo "... sylar/email/email.o"
 	@echo "... sylar/email/email.i"
 	@echo "... sylar/email/email.s"
@@ -2273,6 +2446,9 @@ help:
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"
+	@echo "... tests/test_dict.o"
+	@echo "... tests/test_dict.i"
+	@echo "... tests/test_dict.s"
 	@echo "... tests/test_email.o"
 	@echo "... tests/test_email.i"
 	@echo "... tests/test_email.s"

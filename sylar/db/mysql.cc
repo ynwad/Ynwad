@@ -97,7 +97,6 @@ bool MySQL::connect() {
     if(m_mysql && !m_hasError) {
         return true;
     }
-
     MYSQL* m = mysql_init(m_params, 0);
     if(!m) {
         m_hasError = true;
@@ -220,6 +219,7 @@ MySQLStmt::ptr MySQLStmt::Create(MySQL::ptr db, const std::string& stmt) {
     if(!st) {
         return nullptr;
     }
+    
     if(mysql_stmt_prepare(st, stmt.c_str(), stmt.size())) {
         SYLAR_LOG_ERROR(g_logger) << "stmt=" << stmt
             << " errno=" << mysql_stmt_errno(st)

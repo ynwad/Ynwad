@@ -30,3 +30,6 @@ depcomp
 *.xcodeproj
 .vscode/
 CMakeFiles/
+bin/test_*
+CMakeCache.txt
+log.txt
