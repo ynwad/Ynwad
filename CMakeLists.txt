@@ -120,8 +120,15 @@ sylar_add_executable(test_ws_server "tests/test_ws_server.cc" sylar "${LIBS}")
 sylar_add_executable(test_email "tests/test_email.cc" sylar "${LIBS}")
 sylar_add_executable(test_sqlite3 "tests/test_sqlite3.cc" sylar "${LIBS}")
 sylar_add_executable(test_mysql "tests/test_mysql.cc" sylar "${LIBS}")
-sylar_add_executable(test_dict "tests/test_dict.cc" sylar "${LIBS}")
 
+sylar_add_executable(test_lru "tests/test_lru.cc" sylar "${LIBS}")
+sylar_add_executable(test_timed_cache "tests/test_timed_cache.cc" sylar "${LIBS}")
+sylar_add_executable(test_timed_lru_cache "tests/test_timed_lru_cache.cc" sylar "${LIBS}")
+sylar_add_executable(test_bitmap "tests/test_bitmap.cc" sylar "${LIBS}")
+sylar_add_executable(test_hashmultimap "tests/test_hashmultimap.cc" sylar "${LIBS}")
+sylar_add_executable(test_hashmap "tests/test_hashmap.cc" sylar "${LIBS}")
+sylar_add_executable(test_dict "tests/test_dict.cc" sylar "${LIBS}")
+sylar_add_executable(test_array "tests/test_array.cc" sylar "${LIBS}")
 
 # target_link_libraries(test sylar)
 

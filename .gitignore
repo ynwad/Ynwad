@@ -33,3 +33,7 @@ CMakeFiles/
 bin/test_*
 CMakeCache.txt
 log.txt
+*.dat.*
+*.dat
+*.log
+*.data
