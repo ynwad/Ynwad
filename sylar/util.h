@@ -83,6 +83,8 @@ std::string ToLower(const std::string& name);
 std::string Time2Str(time_t ts = time(0), const std::string& format = "%Y-%m-%d %H:%M:%S");
 time_t Str2Time(const char* str, const char* format = "%Y-%m-%d %H:%M:%S");
 
+// 从给定的关联容器 m 中查找键 k 对应的值，并尝试将该值转换为指定类型 V，
+// 如果转换失败或者未找到该键，则返回默认值 def
 template<class V, class Map, class K>
 V GetParamValue(const Map& m, const K& k, const V& def = V()) {
     auto it = m.find(k);
