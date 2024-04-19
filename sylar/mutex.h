@@ -11,7 +11,7 @@
 #include <list>
 
 #include "noncopyable.h"
-// #include "fiber.h"
+#include "fiber.h"
 
 namespace sylar {
 

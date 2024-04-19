@@ -1,5 +1,6 @@
 #include "mutex.h"
 #include "macro.h"
+#include "scheduler.h"
 
 namespace sylar{
 

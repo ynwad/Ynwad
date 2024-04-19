@@ -15,7 +15,7 @@
 #include "sylar/rock/rock_server.h"
 #include "sylar/ns/name_server_module.h"
 #include "sylar/db/fox_thread.h"
-#include "sylar/db/redis.h"
+// #include "sylar/db/redis.h"
 
 namespace sylar {
 

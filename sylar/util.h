@@ -29,14 +29,14 @@
 #include <vector>
 #include <string>
 #include <iomanip>
-// #include <json/json.h>
+#include <json/json.h>
 #include <yaml-cpp/yaml.h>
 #include <iostream>
 #include <boost/lexical_cast.hpp>
-// #include <google/protobuf/message.h>
+#include <google/protobuf/message.h>
 #include "sylar/util/hash_util.h"
 #include "sylar/util/json_util.h"
-// #include "sylar/util/crypto_util.h"
+#include "sylar/util/crypto_util.h"
 
 namespace sylar {
 /**
@@ -118,11 +118,18 @@ public:
                             ,const std::string& path
                             ,const std::string& subfix);
     static bool Mkdir(const std::string& dirname);
+    static bool IsRunningPidfile(const std::string& pidfile);
+    static bool Rm(const std::string& path);
+    static bool Mv(const std::string& from, const std::string& to);
+    static bool Realpath(const std::string& path, std::string& rpath);
+    static bool Symlink(const std::string& frm, const std::string& to);
+    static bool Unlink(const std::string& filename, bool exist = false);
     static std::string Dirname(const std::string& filename);
     static std::string Basename(const std::string& filename);
-    static bool OpenForWrite(std::ofstream& ofs, const std::string& filename
+    static bool OpenForRead(std::ifstream& ifs, const std::string& filename
                     ,std::ios_base::openmode mode);
-    static bool Unlink(const std::string& filename, bool exist = false);                
+    static bool OpenForWrite(std::ofstream& ofs, const std::string& filename
+                    ,std::ios_base::openmode mode);             
 };
 
 template<class T>
@@ -307,6 +314,48 @@ private:
     uint64_t m_size;
     std::shared_ptr<T> m_ptr;
 };
+
+std::string GetHostName();
+std::string GetIPv4();
+
+bool YamlToJson(const YAML::Node& ynode, Json::Value& jnode);
+bool JsonToYaml(const Json::Value& jnode, YAML::Node& ynode);
+
+std::string PBToJsonString(const google::protobuf::Message& message);
+
+template<class Iter>
+std::string Join(Iter begin, Iter end, const std::string& tag) {
+    std::stringstream ss;
+    for(Iter it = begin; it != end; ++it) {
+        if(it != begin) {
+            ss << tag;
+        }
+        ss << *it;
+    }
+    return ss.str();
+}
+
+//[begin, end)
+//if rt > 0, 存在,返回对应index
+//   rt < 0, 不存在,返回对于应该存在的-(index + 1)
+template<class T>
+int BinarySearch(const T* arr, int length, const T& v) {
+    int m = 0;
+    int begin = 0;
+    int end = length - 1;
+    while(begin <= end) {
+        m = (begin + end) / 2;
+        if(v < arr[m]) {
+            end = m - 1;
+        } else if(arr[m] < v) {
+            begin = m + 1;
+        } else {
+            return m;
+        }
+    }
+    return -begin - 1;
+}
+
 
 inline bool ReadFixFromStream(std::istream& is, char* data, const uint64_t& size) {
     uint64_t pos = 0;
