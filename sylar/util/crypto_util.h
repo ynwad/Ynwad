@@ -11,7 +11,7 @@
 
 #include <openssl/ssl.h>
 #include <openssl/evp.h>
-#include <openssl/types.h>
+// #include <openssl/types.h>
 #include <stdint.h>
 #include <memory>
 #include <string>

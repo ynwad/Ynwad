@@ -16,7 +16,7 @@ struct PidVid {
 
 void gen() {
     sylar::ds::HashMap<int, PidVid> tmp;
-    for(int i = 0; i < 1000; ++i) {
+    for(int i = 0; i < 500000; ++i) {
         int32_t len = rand() % 10 + 5;
         int k = rand();
         for(int n = 0; n < len; ++n) {
@@ -29,7 +29,7 @@ void gen() {
 }
 
 void test() {
-    for(int i = 0; i < 1000; ++i) {
+    for(int i = 0; i < 10000; ++i) {
         SYLAR_LOG_INFO(g_logger) << "i=" << i;
         std::ifstream ifs("./hashmap.data");
         sylar::ds::HashMap<int, PidVid> tmp;

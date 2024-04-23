@@ -1,21 +1,16 @@
 #include <iostream>
 #include "sylar/db/mysql.h"
 #include "sylar/iomanager.h"
-#include "sylar/log.h"
-#include "sylar/util.h"
-
-static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 
 void run() {
     do {
         std::map<std::string, std::string> params;
         params["host"] = "127.0.0.1";
-        params["user"] = "ynwad";
-        params["passwd"] = "ynwad";
+        params["user"] = "sylar";
+        params["passwd"] = "blog123";
         params["dbname"] = "blog";
 
         sylar::MySQL::ptr mysql(new sylar::MySQL(params));
-
         if(!mysql->connect()) {
             std::cout << "connect fail" << std::endl;
             return;
@@ -28,11 +23,10 @@ void run() {
         //int a = 0;
         //b.buffer_type = MYSQL_TYPE_LONG;
         //b.buffer = &a;
-        //mysql_stmt_bind_param(m_   update users set update_time = '2024-04-02 00:31:52' where id = 2
-        // sylar::MySQLStmt::ptr stmt = sylar::MySQLStmt::Create(mysql, "update users set update_time = ? where id = 2");
-        sylar::MySQLStmt::ptr stmt = sylar::MySQLStmt::Create(mysql, "update user_accounts set password = ? where id = 2");
-        
-        stmt->bindString(1, "00000000000000");
+        //mysql_stmt_bind_param(m_
+
+        sylar::MySQLStmt::ptr stmt = sylar::MySQLStmt::Create(mysql, "update user set update_time = ? where id = 1");
+        stmt->bindString(1, "2018-01-01 10:10:10");
         int rt = stmt->execute();
         std::cout << "rt=" << rt << std::endl;
 
@@ -74,9 +68,8 @@ void run() {
 }
 
 int main(int argc, char** argv) {
-    sylar::IOManager iom(1, false);
-    // iom.schedule(run);
-    // run();
+    sylar::IOManager iom(1);
+    //iom.schedule(run);
     iom.addTimer(1000, run, true);
     return 0;
 }

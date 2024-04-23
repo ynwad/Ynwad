@@ -9,13 +9,15 @@ add_definitions(-Wno-builtin-macro-redefined)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
 #C++ 编译标志相关变量。
-# set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -g -std=c++17 -Wall -Wno-deprecated -Werror -Wno-unused-function -lcrypto")
-set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -pthread -g -std=c++17 -Wall -Wno-deprecated-declarations -Werror -Wno-unused-function -lcrypto")
+set(CMAKE_CXX_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
+set(CMAKE_C_FLAGS "$ENV{CXXFLAGS} -rdynamic -O3 -fPIC -ggdb -std=c11 -Wall -Wno-deprecated -Werror -Wno-unused-function -Wno-builtin-macro-redefined -Wno-deprecated-declarations")
 
 include_directories(.)
 include_directories(/usr/include/jsoncpp)
 
 link_directories(/usr/local/lib)
+
+option(BUILD_TEST "ON for complile test" OFF)
 
 find_package(OpenSSL REQUIRED)
 if(OPENSSL_FOUND)
@@ -31,6 +33,12 @@ find_package(MariaDB REQUIRED)
 if(MariaDB_FOUND)
     include_directories(${MYSQL_INCLUDE_DIR})
 endif()
+
+find_package(Protobuf)
+if(Protobuf_FOUND)
+    include_directories(${Protobuf_INCLUDE_DIRS})
+endif()
+message("OPENSSL_INCLUDE_DIR:    ${OPENSSL_INCLUDE_DIR}")
 message("MYSQL_INCLUDE_DIR:       ${MYSQL_INCLUDE_DIR}")
 message("MYSQL_LIBRARIES:       ${MYSQL_LIBRARIES}")
 
@@ -41,7 +49,7 @@ set(LIB_SRC
     sylar/config.cc
     sylar/db/fox_thread.cc
     sylar/db/mysql.cc
-    # sylar/db/redis.cc
+    sylar/db/redis.cc
     sylar/db/sqlite3.cc
     sylar/ds/bitmap.cc
     sylar/ds/roaring_bitmap.cc
@@ -62,7 +70,7 @@ set(LIB_SRC
     sylar/http/servlet.cc
     sylar/http/servlets/config_servlet.cc
     sylar/http/servlets/status_servlet.cc
-    # sylar/http/session_data.cc
+    sylar/http/session_data.cc
     sylar/http/ws_connection.cc
     sylar/http/ws_session.cc
     sylar/http/ws_server.cc
@@ -72,9 +80,9 @@ set(LIB_SRC
     sylar/log.cc
     sylar/module.cc
     sylar/mutex.cc
-    # sylar/ns/name_server_module.cc
-    # sylar/ns/ns_client.cc
-    # sylar/ns/ns_protocol.cc
+    sylar/ns/name_server_module.cc
+    sylar/ns/ns_client.cc
+    sylar/ns/ns_protocol.cc
     sylar/protocol.cc
     sylar/rock/rock_protocol.cc
     sylar/rock/rock_server.cc
@@ -108,51 +116,93 @@ protobufmaker(sylar/ns/ns_protobuf.proto LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR})
 #添加要生成的库文件
 add_library(sylar SHARED ${LIB_SRC})
 force_redefine_file_macro_for_sources(sylar)
-
 set_target_properties(sylar PROPERTIES OUTPUT_NAME "sylar")
+
 add_library(sylar_static STATIC ${LIB_SRC})
 SET_TARGET_PROPERTIES (sylar_static PROPERTIES OUTPUT_NAME "sylar")
 
 set(LIBS
     sylar
+    dl
     yaml-cpp
     jsoncpp
+    pthread
     sqlite3
     ${OPENSSL_LIBRARIES}
     ${ZLIB_LIBRARIES}
+    ${PROTOBUF_LIBRARIES}
     mariadbclient
+    event
+    zookeeper_mt
+    hiredis_vip
+    tinyxml2
+    jemalloc
 )
 
-sylar_add_executable(test_log "tests/test_log.cc" sylar "${LIBS}")
-sylar_add_executable(test_thread "tests/test_thread.cc" sylar "${LIBS}")
-sylar_add_executable(test_config "tests/test_config.cc" sylar "${LIBS}")
-sylar_add_executable(test_fiber "tests/test_fiber.cc" sylar "${LIBS}")
-sylar_add_executable(test_scheduler "tests/test_scheduler.cc" sylar "${LIBS}")
-sylar_add_executable(test_iomanager "tests/test_iomanager.cc" sylar "${LIBS}")
-sylar_add_executable(test_hook "tests/test_hook.cc" sylar "${LIBS}")
-sylar_add_executable(test_socket "tests/test_socket.cc" sylar "${LIBS}")
-sylar_add_executable(test_tcp_server "tests/test_tcp_server.cc" sylar "${LIBS}")
-sylar_add_executable(test_bytearray "tests/test_bytearray.cc" sylar "${LIBS}")
-sylar_add_executable(test_http_parser "tests/test_http_parser.cc" sylar "${LIBS}")
-sylar_add_executable(test_http "tests/test_http.cc" sylar "${LIBS}")
-sylar_add_executable(test_http_connection "tests/test_http_connection.cc" sylar "${LIBS}")
-sylar_add_executable(test_http_server "tests/test_http_server.cc" sylar "${LIBS}")
-sylar_add_executable(test_ws_client "tests/test_ws_client.cc" sylar "${LIBS}")
-sylar_add_executable(test_ws_server "tests/test_ws_server.cc" sylar "${LIBS}")
-sylar_add_executable(test_email "tests/test_email.cc" sylar "${LIBS}")
-sylar_add_executable(test_sqlite3 "tests/test_sqlite3.cc" sylar "${LIBS}")
-sylar_add_executable(test_mysql "tests/test_mysql.cc" sylar "${LIBS}")
-
-sylar_add_executable(test_lru "tests/test_lru.cc" sylar "${LIBS}")
-sylar_add_executable(test_timed_cache "tests/test_timed_cache.cc" sylar "${LIBS}")
-sylar_add_executable(test_timed_lru_cache "tests/test_timed_lru_cache.cc" sylar "${LIBS}")
-sylar_add_executable(test_bitmap "tests/test_bitmap.cc" sylar "${LIBS}")
+sylar_add_executable(test_util "tests/test_util.cc" sylar "${LIBS}")
 sylar_add_executable(test_hashmultimap "tests/test_hashmultimap.cc" sylar "${LIBS}")
 sylar_add_executable(test_hashmap "tests/test_hashmap.cc" sylar "${LIBS}")
 sylar_add_executable(test_dict "tests/test_dict.cc" sylar "${LIBS}")
 sylar_add_executable(test_array "tests/test_array.cc" sylar "${LIBS}")
 
-# target_link_libraries(test sylar)
+if(BUILD_TEST)
+sylar_add_executable(test1 "tests/test.cc" sylar "${LIBS}")
+sylar_add_executable(test_config "tests/test_config.cc" sylar "${LIBS}")
+sylar_add_executable(test_thread "tests/test_thread.cc" sylar "${LIBS}")
+sylar_add_executable(test_fiber "tests/test_fiber.cc" sylar "${LIBS}")
+sylar_add_executable(test_scheduler "tests/test_scheduler.cc" sylar "${LIBS}")
+sylar_add_executable(test_iomanager "tests/test_iomanager.cc" sylar "${LIBS}")
+sylar_add_executable(test_hook "tests/test_hook.cc" sylar "${LIBS}")
+sylar_add_executable(test_address "tests/test_address.cc" sylar "${LIBS}")
+sylar_add_executable(test_socket "tests/test_socket.cc" sylar "${LIBS}")
+sylar_add_executable(test_bytearray "tests/test_bytearray.cc" sylar "${LIBS}")
+sylar_add_executable(test_http "tests/test_http.cc" sylar "${LIBS}")
+sylar_add_executable(test_http_parser "tests/test_http_parser.cc" sylar "${LIBS}")
+sylar_add_executable(test_tcp_server "tests/test_tcp_server.cc" sylar "${LIBS}")
+sylar_add_executable(echo_server "examples/echo_server.cc" sylar "${LIBS}")
+sylar_add_executable(test_http_server "tests/test_http_server.cc" sylar "${LIBS}")
+sylar_add_executable(test_uri "tests/test_uri.cc" sylar "${LIBS}")
+sylar_add_executable(my_http_server "samples/my_http_server.cc" sylar "${LIBS}")
+
+sylar_add_executable(echo_server_udp "examples/echo_server_udp.cc" sylar "${LIBS}")
+sylar_add_executable(echo_udp_client "examples/echo_udp_client.cc" sylar "${LIBS}")
+
+sylar_add_executable(test_daemon "tests/test_daemon.cc" sylar "${LIBS}")
+sylar_add_executable(test_env "tests/test_env.cc" sylar "${LIBS}")
+sylar_add_executable(test_ws_server "tests/test_ws_server.cc" sylar "${LIBS}")
+sylar_add_executable(test_ws_client "tests/test_ws_client.cc" sylar "${LIBS}")
+sylar_add_executable(test_application "tests/test_application.cc" sylar "${LIBS}")
+
+sylar_add_executable(test_http_connection "tests/test_http_connection.cc" sylar "${LIBS}")
+sylar_add_executable(test_lru "tests/test_lru.cc" sylar "${LIBS}")
+sylar_add_executable(test_timed_cache "tests/test_timed_cache.cc" sylar "${LIBS}")
+sylar_add_executable(test_timed_lru_cache "tests/test_timed_lru_cache.cc" sylar "${LIBS}")
+sylar_add_executable(test_zlib_stream "tests/test_zlib_stream.cc" sylar "${LIBS}")
+
+endif()
+sylar_add_executable(test_crypto "tests/test_crypto.cc" sylar "${LIBS}")
+sylar_add_executable(test_sqlite3 "tests/test_sqlite3.cc" sylar "${LIBS}")
+sylar_add_executable(test_rock "tests/test_rock.cc" sylar "${LIBS}")
+sylar_add_executable(test_email  "tests/test_email.cc" sylar "${LIBS}")
+sylar_add_executable(test_mysql "tests/test_mysql.cc" sylar "${LIBS}")
+sylar_add_executable(test_nameserver "tests/test_nameserver.cc" sylar "${LIBS}")
+sylar_add_executable(test_bitmap "tests/test_bitmap.cc" sylar "${LIBS}")
+sylar_add_executable(test_zkclient "tests/test_zookeeper.cc" sylar "${LIBS}")
+sylar_add_executable(test_service_discovery "tests/test_service_discovery.cc" sylar "${LIBS}")
+
+set(ORM_SRCS
+    sylar/orm/table.cc
+    sylar/orm/column.cc
+    sylar/orm/index.cc
+    sylar/orm/orm.cc
+    sylar/orm/util.cc
+    )
+sylar_add_executable(orm "${ORM_SRCS}" sylar "${LIBS}")
+
+add_library(test_module SHARED tests/test_module.cc)
+
+sylar_add_executable(bin_sylar "sylar/main.cc" sylar "${LIBS}")
+set_target_properties(bin_sylar PROPERTIES OUTPUT_NAME "sylar")
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

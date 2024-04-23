@@ -233,13 +233,10 @@ void FSUtil::ListAllFile(std::vector<std::string>& files
 }
 
 bool FSUtil::Mkdir(const std::string& dirname) {
-    if(std::filesystem::is_directory(dirname.c_str())) {
+    if(__lstat(dirname.c_str()) == 0) {
         return true;
-    } 
-    //strdup()，复制string，返回char*
+    }
     char* path = strdup(dirname.c_str());
-
-    //搜索‘/’在字符串中第一次出现的位置
     char* ptr = strchr(path + 1, '/');
     do {
         for(; ptr; *ptr = '/', ptr = strchr(ptr + 1, '/')) {
@@ -259,6 +256,29 @@ bool FSUtil::Mkdir(const std::string& dirname) {
     free(path);
     return false;
 }
+
+bool FSUtil::IsRunningPidfile(const std::string& pidfile) {
+    if(__lstat(pidfile.c_str()) != 0) {
+        return false;
+    }
+    std::ifstream ifs(pidfile);
+    std::string line;
+    if(!ifs || !std::getline(ifs, line)) {
+        return false;
+    }
+    if(line.empty()) {
+        return false;
+    }
+    pid_t pid = atoi(line.c_str());
+    if(pid <= 1) {
+        return false;
+    }
+    if(kill(pid, 0) != 0) {
+        return false;
+    }
+    return true;
+}
+
 
 bool FSUtil::OpenForWrite(std::ofstream& ofs, const std::string& filename
                         ,std::ios_base::openmode mode) {

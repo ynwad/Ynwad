@@ -16,7 +16,7 @@ struct PidVid {
 
 void gen() {
     sylar::ds::HashMultimap<int, PidVid> tmp;
-    for(int i = 0; i < 10000; ++i) {
+    for(int i = 0; i < 500000; ++i) {
         int32_t len = rand() % 10 + 5;
         int k = rand();
         for(int n = 0; n < len; ++n) {

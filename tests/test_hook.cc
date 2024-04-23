@@ -1,16 +1,6 @@
-/*
- * @Author: ynwad
- * @Date: 2024-01-23 22:59:33
- * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-23 23:15:34
- * @FilePath: /ynwad/tests/test_hook.cc
- * @Description: 
- * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
- */
-#include "../sylar/hook.h"
-#include "../sylar/log.h"
-#include "../sylar/iomanager.h"
+#include "sylar/hook.h"
+#include "sylar/log.h"
+#include "sylar/iomanager.h"
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
@@ -41,14 +31,14 @@ void test_sock() {
     memset(&addr, 0, sizeof(addr));
     addr.sin_family = AF_INET;
     addr.sin_port = htons(80);
-    inet_pton(AF_INET, "192.168.130.38", &addr.sin_addr.s_addr);
+    inet_pton(AF_INET, "115.239.210.27", &addr.sin_addr.s_addr);
 
     SYLAR_LOG_INFO(g_logger) << "begin connect";
     int rt = connect(sock, (const sockaddr*)&addr, sizeof(addr));
     SYLAR_LOG_INFO(g_logger) << "connect rt=" << rt << " errno=" << errno;
 
     if(rt) {
-        // return;
+        return;
     }
 
     const char data[] = "GET / HTTP/1.0\r\n\r\n";
@@ -74,7 +64,7 @@ void test_sock() {
 }
 
 int main(int argc, char** argv) {
-    // test_sleep();
+    //test_sleep();
     sylar::IOManager iom;
     iom.schedule(test_sock);
     return 0;

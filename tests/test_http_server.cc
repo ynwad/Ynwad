@@ -8,11 +8,11 @@ static sylar::Logger::ptr g_logger = SYLAR_LOG_ROOT();
 
 sylar::IOManager::ptr worker;
 void run() {
-    // g_logger->setLevel(sylar::LogLevel::INFO);
+    g_logger->setLevel(sylar::LogLevel::INFO);
     //sylar::http::HttpServer::ptr server(new sylar::http::HttpServer(true, worker.get(), sylar::IOManager::GetThis()));
     sylar::http::HttpServer::ptr server(new sylar::http::HttpServer(true));
-    sylar::Address::ptr addr = sylar::Address::LookupAnyIPAddress("192.168.31.101:8020");
-    while(!server->bind(addr, false)) {
+    sylar::Address::ptr addr = sylar::Address::LookupAnyIPAddress("0.0.0.0:8020");
+    while(!server->bind(addr)) {
         sleep(2);
     }
     auto sd = server->getServletDispatch();
@@ -37,7 +37,7 @@ void run() {
 <head><title>404 Not Found</title></head>
 <body>
 <center><h1>404 Not Found</h1></center>
-<hr><center>nginx/2.16.0</center>
+<hr><center>nginx/1.16.0</center>
 </body>
 </html>
 <!-- a padding to disable MSIE and Chrome friendly error page -->
@@ -49,8 +49,7 @@ void run() {
 ));
             return 0;
     });
-    // server->loadCertificates("/home/ynwad/workspace/ynwad/bin/https_Certificate/cacert.pem", 
-    //                          "/home/ynwad/workspace/ynwad/bin/https_Certificate/privkey.pem");
+
     server->start();
 }
 

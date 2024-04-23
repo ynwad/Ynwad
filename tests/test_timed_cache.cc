@@ -3,7 +3,7 @@
 void test_timed_cache() {
     sylar::ds::TimedCache<int, int> cache(30, 10);
     for(int i = 0; i < 105; ++i) {
-        cache.set(i, i * 100, 2001);
+        cache.set(i, i * 100, 1000);
     }
 
     for(int i = 0; i < 105; ++i) {

@@ -31,7 +31,7 @@ void gen() {
 }
 
 void test() {
-    for(int i = 0; i < 1000; ++i) {
+    for(int i = 0; i < 10000; ++i) {
         SYLAR_LOG_INFO(g_logger) << "i=" << i;
         std::ifstream ifs("./dict.data");
         sylar::ds::Dict<int, PidVid> tmp;

@@ -165,7 +165,7 @@ int Application::run_fiber() {
     sylar::WorkerMgr::GetInstance()->init();
     FoxThreadMgr::GetInstance()->init();
     FoxThreadMgr::GetInstance()->start();
-    RedisMgr::GetInstance();
+    // RedisMgr::GetInstance();
 
     auto http_confs = g_servers_conf->getValue();
     std::vector<TcpServer::ptr> svrs;

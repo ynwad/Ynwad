@@ -2,11 +2,9 @@
 #define __SYLAR_DB_REDIS_H__
 
 #include <stdlib.h>
-// #include <hiredis-vip/hiredis.h>
-#include <hiredis/hiredis.h>
-// #include <hiredis-vip/hircluster.h>
-#include <hiredis/adapters/libevent.h>
-// #include <hiredis-vip/adapters/libevent.h>
+#include <hiredis-vip/hiredis.h>
+#include <hiredis-vip/hircluster.h>
+#include <hiredis-vip/adapters/libevent.h>
 #include <sys/time.h>
 #include <string>
 #include <memory>

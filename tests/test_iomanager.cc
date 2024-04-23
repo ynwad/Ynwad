@@ -1,15 +1,5 @@
-/*
- * @Author: ynwad
- * @Date: 2024-01-21 23:21:35
- * @LastEditors: ynwad qingchenchn@gmail.com
- * @LastEditTime: 2024-01-21 23:21:50
- * @FilePath: /ynwad/tests/test_iomanager.cc
- * @Description: 
- * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
- */
-#include "../sylar/sylar.h"
-#include "../sylar/iomanager.h"
+#include "sylar/sylar.h"
+#include "sylar/iomanager.h"
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
