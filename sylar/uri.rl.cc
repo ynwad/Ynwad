@@ -1,11 +1,11 @@
 
-#line 1 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 1 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 #include "uri.h"
 #include <sstream>
 
 namespace sylar {
 
-#line 9 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 9 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 static const int uri_parser_start = 451;
 static const int uri_parser_first_final = 451;
 static const int uri_parser_error = 0;
@@ -13,7 +13,7 @@ static const int uri_parser_error = 0;
 static const int uri_parser_en_main = 451;
 
 
-#line 134 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 134 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 
 
 Uri::ptr Uri::Create(const std::string& uristr) {
@@ -21,17 +21,17 @@ Uri::ptr Uri::Create(const std::string& uristr) {
     int cs = 0;
     const char* mark = 0;
     
-#line 25 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 25 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	{
 	cs = uri_parser_start;
 	}
 
-#line 141 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 141 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
     const char *p = uristr.c_str();
     const char *pe = p + uristr.size();
     const char* eof = pe;
     
-#line 35 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 35 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	{
 	if ( p == pe )
 		goto _test_eof;
@@ -94,9 +94,9 @@ st0:
 cs = 0;
 	goto _out;
 tr467:
-#line 16 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 16 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 106 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 106 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         //std::cout << std::string(mark, fpc - mark) << std::endl;
         uri->setQuery(std::string(mark, p - mark));
@@ -104,7 +104,7 @@ tr467:
     }
 	goto st453;
 tr469:
-#line 106 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 106 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         //std::cout << std::string(mark, fpc - mark) << std::endl;
         uri->setQuery(std::string(mark, p - mark));
@@ -112,9 +112,9 @@ tr469:
     }
 	goto st453;
 tr474:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -123,7 +123,7 @@ tr474:
     }
 	goto st453;
 tr485:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -132,9 +132,9 @@ tr485:
     }
 	goto st453;
 tr489:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -143,7 +143,7 @@ tr489:
     }
 	goto st453;
 tr493:
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -152,16 +152,16 @@ tr493:
     }
 	goto st453;
 tr548:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
             uri->setHost(std::string(mark, p - mark));
         }
     }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -171,16 +171,16 @@ tr548:
     }
 	goto st453;
 tr559:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
             uri->setHost(std::string(mark, p - mark));
         }
     }
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -190,7 +190,7 @@ tr559:
     }
 	goto st453;
 tr563:
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -200,16 +200,16 @@ tr563:
     }
 	goto st453;
 tr566:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
         }
         mark = NULL;
     }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -219,16 +219,16 @@ tr566:
     }
 	goto st453;
 tr570:
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
         }
         mark = NULL;
     }
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -241,7 +241,7 @@ st453:
 	if ( ++p == pe )
 		goto _test_eof453;
 case 453:
-#line 245 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 245 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 37: goto tr463;
 		case 60: goto st0;
@@ -262,14 +262,14 @@ case 453:
 		goto st0;
 	goto tr462;
 tr462:
-#line 16 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 16 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st454;
 st454:
 	if ( ++p == pe )
 		goto _test_eof454;
 case 454:
-#line 273 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 273 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 37: goto st1;
 		case 60: goto st0;
@@ -290,14 +290,14 @@ case 454:
 		goto st0;
 	goto st454;
 tr463:
-#line 16 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 16 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st1;
 st1:
 	if ( ++p == pe )
 		goto _test_eof1;
 case 1:
-#line 301 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 301 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto st2;
@@ -347,9 +347,9 @@ case 4:
 		goto st452;
 	goto st0;
 tr476:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -358,7 +358,7 @@ tr476:
     }
 	goto st455;
 tr486:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -367,9 +367,9 @@ tr486:
     }
 	goto st455;
 tr490:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -378,7 +378,7 @@ tr490:
     }
 	goto st455;
 tr494:
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -390,7 +390,7 @@ st455:
 	if ( ++p == pe )
 		goto _test_eof455;
 case 455:
-#line 394 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 394 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 34: goto st0;
 		case 35: goto st453;
@@ -437,9 +437,9 @@ case 6:
 		goto st455;
 	goto st0;
 tr482:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -448,7 +448,7 @@ tr482:
     }
 	goto st456;
 tr488:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -457,9 +457,9 @@ tr488:
     }
 	goto st456;
 tr492:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -468,7 +468,7 @@ tr492:
     }
 	goto st456;
 tr496:
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -477,16 +477,16 @@ tr496:
     }
 	goto st456;
 tr556:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
             uri->setHost(std::string(mark, p - mark));
         }
     }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -496,16 +496,16 @@ tr556:
     }
 	goto st456;
 tr562:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
             uri->setHost(std::string(mark, p - mark));
         }
     }
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -515,7 +515,7 @@ tr562:
     }
 	goto st456;
 tr565:
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -525,16 +525,16 @@ tr565:
     }
 	goto st456;
 tr569:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
         }
         mark = NULL;
     }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -544,16 +544,16 @@ tr569:
     }
 	goto st456;
 tr573:
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
         }
         mark = NULL;
     }
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -566,7 +566,7 @@ st456:
 	if ( ++p == pe )
 		goto _test_eof456;
 case 456:
-#line 570 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 570 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 34: goto st0;
 		case 35: goto tr467;
@@ -586,14 +586,14 @@ case 456:
 		goto st0;
 	goto tr466;
 tr466:
-#line 16 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 16 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st457;
 st457:
 	if ( ++p == pe )
 		goto _test_eof457;
 case 457:
-#line 597 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 597 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 34: goto st0;
 		case 35: goto tr469;
@@ -613,14 +613,14 @@ case 457:
 		goto st0;
 	goto st457;
 tr468:
-#line 16 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 16 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st7;
 st7:
 	if ( ++p == pe )
 		goto _test_eof7;
 case 7:
-#line 624 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 624 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto st8;
@@ -702,14 +702,14 @@ case 459:
 		goto tr480;
 	goto st0;
 tr472:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st9;
 st9:
 	if ( ++p == pe )
 		goto _test_eof9;
 case 9:
-#line 713 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 713 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	if ( 48 <= (*p) && (*p) <= 52 )
 		goto st10;
 	goto st0;
@@ -834,9 +834,9 @@ case 460:
 	}
 	goto st0;
 tr507:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -845,7 +845,7 @@ tr507:
     }
 	goto st461;
 tr487:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -857,7 +857,7 @@ st461:
 	if ( ++p == pe )
 		goto _test_eof461;
 case 461:
-#line 861 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 861 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 35: goto tr489;
 		case 47: goto tr490;
@@ -867,14 +867,14 @@ case 461:
 		goto tr491;
 	goto st0;
 tr491:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st462;
 st462:
 	if ( ++p == pe )
 		goto _test_eof462;
 case 462:
-#line 878 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 878 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 35: goto tr493;
 		case 47: goto tr494;
@@ -1013,14 +1013,14 @@ case 30:
 		goto st15;
 	goto st0;
 tr473:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st467;
 st467:
 	if ( ++p == pe )
 		goto _test_eof467;
 case 467:
-#line 1024 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1024 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st467;
 		case 35: goto tr485;
@@ -1043,14 +1043,14 @@ case 467:
 		goto st467;
 	goto st0;
 tr475:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st31;
 st31:
 	if ( ++p == pe )
 		goto _test_eof31;
 case 31:
-#line 1054 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1054 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto st32;
@@ -1074,9 +1074,9 @@ case 32:
 		goto st467;
 	goto st0;
 tr481:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -1085,7 +1085,7 @@ tr481:
     }
 	goto st468;
 tr499:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -1097,7 +1097,7 @@ st468:
 	if ( ++p == pe )
 		goto _test_eof468;
 case 468:
-#line 1101 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1101 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st33;
 		case 35: goto tr489;
@@ -1175,7 +1175,7 @@ case 35:
 		goto st33;
 	goto st0;
 tr38:
-#line 35 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 35 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if(mark) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -1185,9 +1185,9 @@ tr38:
     }
 	goto st469;
 tr483:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 35 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 35 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if(mark) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -1200,7 +1200,7 @@ st469:
 	if ( ++p == pe )
 		goto _test_eof469;
 case 469:
-#line 1204 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1204 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 2: goto tr472;
 		case 33: goto tr501;
@@ -1231,14 +1231,14 @@ case 469:
 		goto tr506;
 	goto st0;
 tr501:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st470;
 st470:
 	if ( ++p == pe )
 		goto _test_eof470;
 case 470:
-#line 1242 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1242 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st470;
 		case 35: goto tr485;
@@ -1260,14 +1260,14 @@ case 470:
 		goto st470;
 	goto st0;
 tr502:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st36;
 st36:
 	if ( ++p == pe )
 		goto _test_eof36;
 case 36:
-#line 1271 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1271 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto st37;
@@ -1291,14 +1291,14 @@ case 37:
 		goto st470;
 	goto st0;
 tr503:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st471;
 st471:
 	if ( ++p == pe )
 		goto _test_eof471;
 case 471:
-#line 1302 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1302 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st470;
 		case 35: goto tr485;
@@ -1698,14 +1698,14 @@ case 484:
 		goto st470;
 	goto st0;
 tr504:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st485;
 st485:
 	if ( ++p == pe )
 		goto _test_eof485;
 case 485:
-#line 1709 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1709 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st470;
 		case 35: goto tr485;
@@ -1732,14 +1732,14 @@ case 485:
 		goto st486;
 	goto st0;
 tr506:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st486;
 st486:
 	if ( ++p == pe )
 		goto _test_eof486;
 case 486:
-#line 1743 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1743 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st470;
 		case 35: goto tr485;
@@ -1766,14 +1766,14 @@ case 486:
 		goto st471;
 	goto st0;
 tr505:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st487;
 st487:
 	if ( ++p == pe )
 		goto _test_eof487;
 case 487:
-#line 1777 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1777 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st470;
 		case 35: goto tr485;
@@ -1832,14 +1832,14 @@ case 488:
 		goto st470;
 	goto st0;
 tr484:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st38;
 st38:
 	if ( ++p == pe )
 		goto _test_eof38;
 case 38:
-#line 1843 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 1843 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 58: goto st146;
 		case 118: goto st225;
@@ -4679,14 +4679,14 @@ case 228:
 		goto st228;
 	goto st0;
 tr500:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st489;
 st489:
 	if ( ++p == pe )
 		goto _test_eof489;
 case 489:
-#line 4690 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 4690 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st33;
 		case 35: goto tr493;
@@ -4714,14 +4714,14 @@ case 489:
 		goto st33;
 	goto st0;
 tr477:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st490;
 st490:
 	if ( ++p == pe )
 		goto _test_eof490;
 case 490:
-#line 4725 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 4725 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st467;
 		case 35: goto tr485;
@@ -5135,14 +5135,14 @@ case 503:
 		goto st467;
 	goto st0;
 tr478:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st504;
 st504:
 	if ( ++p == pe )
 		goto _test_eof504;
 case 504:
-#line 5146 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5146 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st467;
 		case 35: goto tr485;
@@ -5170,14 +5170,14 @@ case 504:
 		goto st505;
 	goto st0;
 tr480:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st505;
 st505:
 	if ( ++p == pe )
 		goto _test_eof505;
 case 505:
-#line 5181 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5181 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st467;
 		case 35: goto tr485;
@@ -5205,14 +5205,14 @@ case 505:
 		goto st490;
 	goto st0;
 tr479:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st506;
 st506:
 	if ( ++p == pe )
 		goto _test_eof506;
 case 506:
-#line 5216 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5216 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st467;
 		case 35: goto tr485;
@@ -5273,14 +5273,14 @@ case 507:
 		goto st467;
 	goto st0;
 tr461:
-#line 16 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 16 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st508;
 st508:
 	if ( ++p == pe )
 		goto _test_eof508;
 case 508:
-#line 5284 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5284 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 34: goto st0;
 		case 35: goto st453;
@@ -5313,7 +5313,7 @@ case 508:
 		goto st508;
 	goto st452;
 tr543:
-#line 20 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 20 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         uri->setScheme(std::string(mark, p - mark));
         mark = NULL;
@@ -5323,7 +5323,7 @@ st509:
 	if ( ++p == pe )
 		goto _test_eof509;
 case 509:
-#line 5327 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5327 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 34: goto st0;
 		case 35: goto st453;
@@ -5403,14 +5403,14 @@ case 511:
 		goto tr554;
 	goto st0;
 tr546:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st229;
 st229:
 	if ( ++p == pe )
 		goto _test_eof229;
 case 229:
-#line 5414 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5414 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	if ( 48 <= (*p) && (*p) <= 52 )
 		goto st230;
 	goto st0;
@@ -5535,9 +5535,9 @@ case 512:
 	}
 	goto st0;
 tr550:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -5546,9 +5546,9 @@ tr550:
     }
 	goto st513;
 tr567:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -5557,32 +5557,32 @@ tr567:
     }
 	goto st513;
 tr560:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
             uri->setHost(std::string(mark, p - mark));
         }
     }
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st513;
 tr571:
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
         }
         mark = NULL;
     }
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st513;
 st513:
 	if ( ++p == pe )
 		goto _test_eof513;
 case 513:
-#line 5586 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5586 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 34: goto st0;
 		case 35: goto tr563;
@@ -5629,9 +5629,9 @@ case 244:
 		goto st513;
 	goto st0;
 tr584:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -5640,7 +5640,7 @@ tr584:
     }
 	goto st514;
 tr561:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -5652,7 +5652,7 @@ st514:
 	if ( ++p == pe )
 		goto _test_eof514;
 case 514:
-#line 5656 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5656 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 35: goto tr566;
 		case 47: goto tr567;
@@ -5662,14 +5662,14 @@ case 514:
 		goto tr568;
 	goto st0;
 tr568:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st515;
 st515:
 	if ( ++p == pe )
 		goto _test_eof515;
 case 515:
-#line 5673 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5673 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 35: goto tr570;
 		case 47: goto tr571;
@@ -5808,14 +5808,14 @@ case 252:
 		goto st235;
 	goto st0;
 tr547:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st520;
 st520:
 	if ( ++p == pe )
 		goto _test_eof520;
 case 520:
-#line 5819 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5819 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st520;
 		case 35: goto tr559;
@@ -5838,14 +5838,14 @@ case 520:
 		goto st520;
 	goto st0;
 tr549:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st253;
 st253:
 	if ( ++p == pe )
 		goto _test_eof253;
 case 253:
-#line 5849 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5849 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto st254;
@@ -5869,9 +5869,9 @@ case 254:
 		goto st520;
 	goto st0;
 tr555:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -5880,7 +5880,7 @@ tr555:
     }
 	goto st521;
 tr576:
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -5892,7 +5892,7 @@ st521:
 	if ( ++p == pe )
 		goto _test_eof521;
 case 521:
-#line 5896 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5896 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st255;
 		case 35: goto tr566;
@@ -5970,7 +5970,7 @@ case 257:
 		goto st255;
 	goto st0;
 tr263:
-#line 35 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 35 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if(mark) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -5980,9 +5980,9 @@ tr263:
     }
 	goto st522;
 tr557:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 35 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 35 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if(mark) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -5995,7 +5995,7 @@ st522:
 	if ( ++p == pe )
 		goto _test_eof522;
 case 522:
-#line 5999 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 5999 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 2: goto tr546;
 		case 33: goto tr578;
@@ -6026,14 +6026,14 @@ case 522:
 		goto tr583;
 	goto st0;
 tr578:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st523;
 st523:
 	if ( ++p == pe )
 		goto _test_eof523;
 case 523:
-#line 6037 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 6037 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st523;
 		case 35: goto tr559;
@@ -6055,14 +6055,14 @@ case 523:
 		goto st523;
 	goto st0;
 tr579:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st258;
 st258:
 	if ( ++p == pe )
 		goto _test_eof258;
 case 258:
-#line 6066 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 6066 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	if ( (*p) < 65 ) {
 		if ( 48 <= (*p) && (*p) <= 57 )
 			goto st259;
@@ -6086,14 +6086,14 @@ case 259:
 		goto st523;
 	goto st0;
 tr580:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st524;
 st524:
 	if ( ++p == pe )
 		goto _test_eof524;
 case 524:
-#line 6097 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 6097 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st523;
 		case 35: goto tr559;
@@ -6493,14 +6493,14 @@ case 537:
 		goto st523;
 	goto st0;
 tr581:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st538;
 st538:
 	if ( ++p == pe )
 		goto _test_eof538;
 case 538:
-#line 6504 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 6504 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st523;
 		case 35: goto tr559;
@@ -6527,14 +6527,14 @@ case 538:
 		goto st539;
 	goto st0;
 tr583:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st539;
 st539:
 	if ( ++p == pe )
 		goto _test_eof539;
 case 539:
-#line 6538 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 6538 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st523;
 		case 35: goto tr559;
@@ -6561,14 +6561,14 @@ case 539:
 		goto st524;
 	goto st0;
 tr582:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st540;
 st540:
 	if ( ++p == pe )
 		goto _test_eof540;
 case 540:
-#line 6572 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 6572 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st523;
 		case 35: goto tr559;
@@ -6627,14 +6627,14 @@ case 541:
 		goto st523;
 	goto st0;
 tr558:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st260;
 st260:
 	if ( ++p == pe )
 		goto _test_eof260;
 case 260:
-#line 6638 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 6638 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 58: goto st368;
 		case 118: goto st447;
@@ -9474,14 +9474,14 @@ case 450:
 		goto st450;
 	goto st0;
 tr577:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st542;
 st542:
 	if ( ++p == pe )
 		goto _test_eof542;
 case 542:
-#line 9485 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 9485 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st255;
 		case 35: goto tr570;
@@ -9509,14 +9509,14 @@ case 542:
 		goto st255;
 	goto st0;
 tr551:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st543;
 st543:
 	if ( ++p == pe )
 		goto _test_eof543;
 case 543:
-#line 9520 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 9520 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st520;
 		case 35: goto tr559;
@@ -9930,14 +9930,14 @@ case 556:
 		goto st520;
 	goto st0;
 tr552:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st557;
 st557:
 	if ( ++p == pe )
 		goto _test_eof557;
 case 557:
-#line 9941 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 9941 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st520;
 		case 35: goto tr559;
@@ -9965,14 +9965,14 @@ case 557:
 		goto st558;
 	goto st0;
 tr554:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st558;
 st558:
 	if ( ++p == pe )
 		goto _test_eof558;
 case 558:
-#line 9976 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 9976 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st520;
 		case 35: goto tr559;
@@ -10000,14 +10000,14 @@ case 558:
 		goto st543;
 	goto st0;
 tr553:
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
 	goto st559;
 st559:
 	if ( ++p == pe )
 		goto _test_eof559;
 case 559:
-#line 10011 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 10011 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	switch( (*p) ) {
 		case 33: goto st520;
 		case 35: goto tr559;
@@ -10634,7 +10634,7 @@ case 560:
 	switch ( cs ) {
 	case 462: 
 	case 489: 
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -10685,7 +10685,7 @@ case 560:
 	case 505: 
 	case 506: 
 	case 507: 
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -10694,7 +10694,7 @@ case 560:
     }
 	break;
 	case 513: 
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -10704,7 +10704,7 @@ case 560:
     }
 	break;
 	case 457: 
-#line 106 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 106 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         //std::cout << std::string(mark, fpc - mark) << std::endl;
         uri->setQuery(std::string(mark, p - mark));
@@ -10712,7 +10712,7 @@ case 560:
     }
 	break;
 	case 454: 
-#line 112 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 112 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         //std::cout << std::string(mark, fpc - mark) << std::endl;
         uri->setFragment(std::string(mark, p - mark));
@@ -10720,9 +10720,9 @@ case 560:
     }
 	break;
 	case 456: 
-#line 16 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 16 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 106 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 106 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         //std::cout << std::string(mark, fpc - mark) << std::endl;
         uri->setQuery(std::string(mark, p - mark));
@@ -10730,9 +10730,9 @@ case 560:
     }
 	break;
 	case 453: 
-#line 16 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 16 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 112 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 112 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         //std::cout << std::string(mark, fpc - mark) << std::endl;
         uri->setFragment(std::string(mark, p - mark));
@@ -10741,9 +10741,9 @@ case 560:
 	break;
 	case 461: 
 	case 468: 
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
@@ -10753,9 +10753,9 @@ case 560:
 	break;
 	case 459: 
 	case 469: 
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
@@ -10765,16 +10765,16 @@ case 560:
 	break;
 	case 514: 
 	case 521: 
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
         }
         mark = NULL;
     }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -10785,16 +10785,16 @@ case 560:
 	break;
 	case 511: 
 	case 522: 
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
             uri->setHost(std::string(mark, p - mark));
         }
     }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -10805,16 +10805,16 @@ case 560:
 	break;
 	case 515: 
 	case 542: 
-#line 28 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 28 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (p != mark) {
             uri->setPort(atoi(mark));
         }
         mark = NULL;
     }
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -10866,16 +10866,16 @@ case 560:
 	case 558: 
 	case 559: 
 	case 560: 
-#line 43 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 43 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
         if (mark != NULL) {
             //std::cout << std::string(mark, fpc - mark) << std::endl;
             uri->setHost(std::string(mark, p - mark));
         }
     }
-#line 17 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 17 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{ mark = p; }
-#line 78 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 78 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
 	{
             //std::cout << std::string(mark, fpc - mark) << std::endl;
         if(mark != nullptr){
@@ -10884,14 +10884,14 @@ case 560:
         mark = NULL;
     }
 	break;
-#line 10888 "/home/ynwad/workspace/ynwad/sylar/uri.rl.cc"
+#line 10888 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl.cc"
 	}
 	}
 
 	_out: {}
 	}
 
-#line 145 "/home/ynwad/workspace/ynwad/sylar/uri.rl"
+#line 145 "/home/ynwad/workspace/chat_room/ynwad/sylar/uri.rl"
     if(cs == uri_parser_error) {
         return nullptr;
     } else if(cs >= uri_parser_first_final) {
