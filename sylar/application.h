@@ -28,7 +28,7 @@ private:
     char** m_argv = nullptr;
 
     //std::vector<sylar::http::HttpServer::ptr> m_httpservers;
-    std::map<std::string, std::vector<TcpServer::ptr> > m_servers;
+    std::map<std::string, std::vector<TcpServer::ptr>> m_servers;
     IOManager::ptr m_mainIOManager;
     static Application* s_instance;
 

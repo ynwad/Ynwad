@@ -178,7 +178,6 @@ void ModuleManager::delAll() {
 
 void ModuleManager::init() {
     auto path = EnvMgr::GetInstance()->getAbsolutePath(g_module_path->getValue());
-    
     std::vector<std::string> files;
     sylar::FSUtil::ListAllFile(files, path, ".so");
 

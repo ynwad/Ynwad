@@ -122,6 +122,10 @@ bool Application::run() {
 }
 
 int Application::main(int argc, char** argv) {
+    // 忽略 SIGPIPE 信号
+    // SIGPIPE 是一个信号，用于通知进程其写入一个已经被关闭的写端的管道或者套接字。
+    // 当一个进程向已经关闭写端的管道或者套接字写入数据时，系统会向该进程发送 SIGPIPE 信号。
+    // 默认情况下，如果进程不处理这个信号，会导致进程终止。
     signal(SIGPIPE, SIG_IGN);
     SYLAR_LOG_INFO(g_logger) << "main";
     std::string conf_path = sylar::EnvMgr::GetInstance()->getConfigPath();

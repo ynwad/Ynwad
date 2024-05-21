@@ -17,7 +17,7 @@ include_directories(/usr/include/jsoncpp)
 
 link_directories(/usr/local/lib)
 
-option(BUILD_TEST "ON for complile test" OFF)
+option(BUILD_TEST "ON for complile test" ON)
 
 find_package(OpenSSL REQUIRED)
 if(OPENSSL_FOUND)
@@ -206,3 +206,5 @@ set_target_properties(bin_sylar PROPERTIES OUTPUT_NAME "sylar")
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+message("chiled STATUS ${LIB_SRC}")

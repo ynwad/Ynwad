@@ -4,7 +4,7 @@
 
 int main(int argc, char** argv) {
     sylar::Logger::ptr logger(new sylar::Logger);
-    logger->addAppender(sylar::LogAppender::ptr(new sylar::StdoutLogAppender));
+    logger->addAppender(sylar::LogAppender::ptr(new sylar::StdOutLogAppender));
 
     sylar::FileLogAppender::ptr file_appender(new sylar::FileLogAppender("./log.txt"));
     sylar::LogFormatter::ptr fmt(new sylar::LogFormatter("%d%T%p%T%m%n"));
